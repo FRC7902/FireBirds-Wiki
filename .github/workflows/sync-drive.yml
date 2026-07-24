@@ -1,0 +1,58 @@
+name: Sync Google Drive
+
+on:
+  schedule:
+    # Every day at 06:00 UTC
+    - cron: "0 6 * * *"
+
+  workflow_dispatch: # Allows manual sync from GitHub Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Sync Google Drive
+        run: |
+          python -m backend.services.sync.drive_sync
+        env:
+          GOOGLE_DRIVE_FOLDER_URL: ${{ secrets.GOOGLE_DRIVE_FOLDER_URL }}
+          WIKI_CONTENT_DIR: ./Wiki
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add Wiki/ frontend/public/assets/ metadata.json
+
+          git diff --cached --quiet || git commit -m "Auto-sync: Update documentation from Google Drive
+
+          Synced: $(date +%Y-%m-%d\ %H:%M:%S\ UTC)
+          
+          🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+
+          git push

@@ -12,3 +12,4 @@ replit.nix
 .env
 .frontend/node_modules
 .node_modules/
+IMPLEMENTATION_SUMMARY.md
