@@ -222,7 +222,7 @@ class SyncManager:
                 drive_id=drive_id,
                 modified_time=datetime.now(timezone.utc).isoformat(),
                 path=str(drive_file["path"]),
-                local=str(local_path.relative_to(self.content_dir))
+                local_path=str(local_path.relative_to(self.content_dir))
             )
             
             if file_meta:
