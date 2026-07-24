@@ -5,6 +5,7 @@
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "strict": true,
     "incremental": true,
     "resolveJsonModule": true,
