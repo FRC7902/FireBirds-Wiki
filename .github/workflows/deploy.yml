@@ -33,19 +33,19 @@ jobs:
         run: npm ci
 
       - name: Install frontend dependencies
-        working-directory: ./frontend
+        working-directory: ./website
         run: npm ci
 
       - name: Build project
         run: npm run build
 
       - name: Copy CNAME for custom domain
-        run: cp CNAME frontend/dist/CNAME
+        run: cp CNAME website/build/CNAME
 
       - name: Upload production build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: frontend/dist
+          path: website/build
 
       - name: Deploy to GitHub Pages
         id: deployment
