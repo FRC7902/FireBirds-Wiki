@@ -1,0 +1,125 @@
+.heroBanner {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--dark-100) 0%, var(--dark-200) 30%, var(--blue-100) 70%, var(--blue-300) 100%);
+  color: #ffffff;
+}
+
+.heroContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroLogo {
+  margin-bottom: 1.5rem;
+}
+
+.heroLogo img {
+  width: 120px;
+  height: 120px;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  color: var(--ice-400);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.heroDescription {
+  font-size: 1.1rem;
+  color: var(--dark-700);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--blue-500);
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.primaryButton:hover {
+  background: var(--blue-700);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.mainContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.section {
+  padding: 2rem;
+  border: 1px solid var(--dark-700);
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--ice-800) 0%, var(--ice-900) 100%);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.section:hover {
+  box-shadow: 0 4px 16px rgba(69, 162, 247, 0.2);
+  transform: translateY(-2px);
+}
+
+.section h2 {
+  color: var(--blue-100);
+  margin-bottom: 1rem;
+}
+
+.section p {
+  color: var(--dark-500);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.section a {
+  color: var(--blue-300);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 2rem 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .mainContent {
+    padding: 2rem 1rem;
+    grid-template-columns: 1fr;
+  }
+}

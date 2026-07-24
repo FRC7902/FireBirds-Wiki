@@ -1,4 +1,4 @@
-name: Sync Google Drive
+name: Sync Google Drive & Deploy
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch: # Allows manual sync from GitHub Actions tab
 
 jobs:
-  sync:
+  sync-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,7 @@ jobs:
           python -m backend.services.sync.drive_sync
         env:
           GOOGLE_DRIVE_FOLDER_URL: ${{ secrets.GOOGLE_DRIVE_FOLDER_URL }}
-          WIKI_CONTENT_DIR: ./Wiki
+          WIKI_CONTENT_DIR: ./website/docs
 
       - name: Check for changes
         id: changes
@@ -47,12 +47,34 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add Wiki/ frontend/public/assets/ metadata.json
+          git add website/docs/ website/static/assets/ metadata.json
 
           git diff --cached --quiet || git commit -m "Auto-sync: Update documentation from Google Drive
 
-          Synced: $(date +%Y-%m-%d\ %H:%M:%S\ UTC)
-          
-          🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+          Synced: $(date +%Y-%m-%d\ %H:%M:%S\ UTC)"
 
           git push
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install website dependencies
+        run: |
+          cd website
+          npm ci
+
+      - name: Build Docusaurus site
+        run: |
+          cd website
+          npm run build
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/build
+          publish_branch: gh-pages
+          force_orphan: true

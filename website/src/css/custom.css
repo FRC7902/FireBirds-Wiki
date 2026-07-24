@@ -1,0 +1,69 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed
+ * to work well for content-centric websites.
+ */
+
+/* FireBirds Brand Colors */
+:root {
+  --ifm-color-primary: #c72b2b;
+  --ifm-color-primary-dark: #b32626;
+  --ifm-color-primary-darker: #a92424;
+  --ifm-color-primary-darkest: #8b1d1d;
+  --ifm-color-primary-light: #d13838;
+  --ifm-color-primary-lighter: #d44242;
+  --ifm-color-primary-lightest: #db5f5f;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-navbar-background-color: #1a1a2e;
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-navbar-link-hover-color: #ff6b6b;
+  --ifm-footer-background-color: #1a1a2e;
+
+  /* Gradient 1 - Blue Spectrum */
+  --blue-100: #45a2f7;
+  --blue-200: #4ca8f7;
+  --blue-300: #54aff7;
+  --blue-400: #5cb5f7;
+  --blue-500: #64bcf7;
+  --blue-600: #6bc2f7;
+  --blue-700: #73c9f7;
+  --blue-800: #7bcff7;
+  --blue-900: #83d6f8;
+
+  /* Gradient 2 - Light Blue to White */
+  --ice-100: #8cecf8;
+  --ice-200: #9aeef8;
+  --ice-300: #a8f0f9;
+  --ice-400: #b7f3fa;
+  --ice-500: #c5f5fb;
+  --ice-600: #d3f7fc;
+  --ice-700: #e2fafd;
+  --ice-800: #f0fcfe;
+  --ice-900: #ffffff;
+
+  /* Gradient 3 - Dark Neutral */
+  --dark-100: #172235;
+  --dark-200: #323c4d;
+  --dark-300: #4d5666;
+  --dark-400: #68717e;
+  --dark-500: #848b97;
+  --dark-600: #9fa5af;
+  --dark-700: #bac0c8;
+  --dark-800: #d5dae0;
+  --dark-900: #f1f5f9;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #ff6b6b;
+  --ifm-color-primary-dark: #ff4747;
+  --ifm-color-primary-darker: #ff3535;
+  --ifm-color-primary-darkest: #fc0505;
+  --ifm-color-primary-light: #ff8f8f;
+  --ifm-color-primary-lighter: #ffa1a1;
+  --ifm-color-primary-lightest: #ffd6d6;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 107, 107, 0.3);
+  --ifm-navbar-background-color: #0d0d1a;
+  --ifm-footer-background-color: #0d0d1a;
+}

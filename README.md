@@ -1,262 +1,157 @@
 # Markham FireBirds Wiki
 
-The official wiki for Markham FireBirds, FRC Team 7902. Built with FastAPI, React, TypeScript, and Vite.
+The official wiki for Markham FireBirds, FRC Team 7902. Built with [Docusaurus](https://docusaurus.io/).
 
 ## Tech Stack
 
-- **Backend**: FastAPI (Python)
-- **Frontend**: React 18 + TypeScript + Vite
-- **Content Format**: Markdown with YAML frontmatter
-- **Styling**: CSS Modules
+- **Site Generator**: Docusaurus 3 (React + TypeScript)
+- **Content Format**: Markdown with MDX (React components inside Markdown)
+- **Search**: Local search plugin (no external service needed)
+- **PDF Embedding**: Google Docs/Slides auto-converted to PDF and embedded
+- **Sync**: Python scripts + GitHub Actions for Google Drive integration
+- **Hosting**: GitHub Pages (auto-deployed via GitHub Actions)
 
-## Requirements
+## Quick Start
 
-- [Node.js](https://nodejs.org/en/download/) (v18 or higher)
-- [Python](https://www.python.org/downloads/) (v3.10 or higher)
-- [Git](https://git-scm.com/downloads)
-- [VSCode](https://code.visualstudio.com/download) (optional, but recommended)
-- [Obsidian](https://obsidian.md/) (optional, for editing content)
+```bash
+# Install dependencies
+cd website
+npm install
+
+# Start development server
+npm run start
+```
+
+The site will be available at `http://localhost:3000/FireBirds-Wiki/`
 
 ## Project Structure
 
 ```
 7902 Wiki/
-├── backend/                  # FastAPI backend
-│   ├── main.py              # FastAPI application entry point
-│   ├── services/            # Business logic
-│   │   ├── markdown_loader.py
-│   │   └── tree_builder.py
-│   └── routes/              # API endpoints
-│       ├── tree.py
-│       └── documents.py
-├── frontend/                # React frontend
+├── website/                    # Docusaurus site
+│   ├── docs/                   # Wiki content (Markdown + MDX)
+│   │   ├── index.md            # Wiki home page
+│   │   ├── Engineering/        # Engineering docs
+│   │   ├── Business/           # Business docs
+│   │   └── Strategy/           # Strategy docs
 │   ├── src/
-│   │   ├── components/      # React components
-│   │   ├── pages/           # Page components
-│   │   ├── hooks/           # Custom React hooks
-│   │   ├── types/           # TypeScript type definitions
-│   │   ├── api/             # API client
-│   │   └── App.tsx
+│   │   ├── components/
+│   │   │   ├── PdfEmbed/       # PDF embed React component
+│   │   │   └── HomepageFeatures/
+│   │   ├── css/
+│   │   │   └── custom.css      # Custom FireBirds branding
+│   │   └── pages/
+│   │       ├── index.tsx       # Homepage
+│   │       └── index.module.css
+│   ├── static/
+│   │   ├── assets/             # PDF files (synced from Google Drive)
+│   │   └── img/                # Images and logos
+│   ├── docusaurus.config.ts    # Docusaurus configuration
+│   ├── sidebars.ts             # Auto-generated sidebar config
 │   └── package.json
-├── Wiki/                    # Wiki markdown files (Google Docs/Sheets exports)
-│   ├── Engineering/
-│   ├── Business/
-│   └── Strategy/
-├── wiki/                    # Preferred wiki content directory
-├── package.json             # Root package.json
-└── requirements.txt         # Python dependencies
+├── backend/                    # Python sync scripts
+│   └── services/sync/
+│       ├── drive_sync.py       # Entry point
+│       ├── sync_manager.py     # Sync orchestration
+│       └── drive_client.py     # Google Drive client
+├── .github/workflows/
+│   └── sync-drive.yml          # CI/CD: sync Drive + deploy to GitHub Pages
+└── package.json                # Root scripts
 ```
 
-## Getting Started
+## Features
 
-### 1. Clone the Repository
+### 📄 PDF Embedding
+Google Docs and Slides are automatically converted to PDFs and embedded directly in wiki pages using the custom `<PdfEmbed>` component. Each PDF has a download link and is viewable inline.
+
+### 🔍 Built-in Search
+Full-text search across all wiki content with highlighted results. No external service or API key required.
+
+### 🌙 Dark Mode
+Respects system color scheme preference with custom FireBirds-themed colors.
+
+### 📱 Responsive
+Works on desktop, tablet, and mobile devices.
+
+### 🤖 Automatic Sync
+Google Drive content is synced daily via GitHub Actions, with automatic deployment to GitHub Pages.
+
+## Google Drive Sync
+
+### Configuration
 
 ```bash
-git clone <repository-url>
-cd "7902 Wiki"
-```
-
-### 2. Install Dependencies
-
-**Install Node.js dependencies:**
-
-```bash
-npm run install:all
-```
-
-Or manually:
-
-```bash
-npm install
-cd frontend
-npm install
-cd ..
-```
-
-**Install Python dependencies:**
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Running the Development Server
-
-**Option A: Run both backend and frontend together**
-
-```bash
-npm run dev
-```
-
-This will start:
-- Backend API on `http://localhost:8000`
-- Frontend on `http://localhost:5173`
-
-**Option B: Run individually**
-
-Terminal 1 - Start the backend:
-
-```bash
-npm run backend
-```
-
-Terminal 2 - Start the frontend:
-
-```bash
-npm run frontend
-```
-
-### 4. Open in Browser
-
-Navigate to `http://localhost:5173` to view the wiki.
-
-## Adding and Editing Content
-
-Content files are stored in the `Wiki/` directory as Markdown files with YAML frontmatter. When you export documents from Google Docs or Google Slides, place them in the appropriate subdirectory under `Wiki/`.
-
-### Content Structure
-
-Each markdown file should include frontmatter:
-
-```markdown
----
-title: Page Title
-description: Brief description of the page
-tags: [tag1, tag2]
----
-
-# Page Title
-
-Your content here...
-```
-
-## Syncing Google Drive
-
-Share the source folder and its contents as **Anyone with the link**. No
-Google Cloud project, API key, or service-account key is needed. In PowerShell,
-set:
-
-```powershell
 $env:GOOGLE_DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/your-folder-id"
 ```
 
-Install the added Python dependencies once:
+### Manual Sync
 
-```powershell
-pip install -r requirements.txt
+```bash
+python -m backend.services.sync.drive_sync
 ```
 
-Run a manual sync from the repository root:
+This will:
+- Download Google Docs/Slides as PDFs into `website/static/assets/`
+- Create Docusaurus-compatible markdown files in `website/docs/`
+- Each markdown file embeds the PDF using the `<PdfEmbed>` component
 
-```powershell
-python -m backend.services.drive_sync
+### Automatic Sync (GitHub Actions)
+
+The workflow in `.github/workflows/sync-drive.yml` runs daily at 06:00 UTC and:
+1. Syncs Google Drive content
+2. Commits changes to `website/docs/` and `website/static/assets/`
+3. Builds the Docusaurus site
+4. Deploys to GitHub Pages (`gh-pages` branch)
+
+## Adding Content
+
+Place Markdown files in `website/docs/` organized by category:
+
+```
+website/docs/
+├── Engineering/
+│   ├── CAD/
+│   ├── Manufacturing/
+│   └── Programming/
+├── Business/
+│   ├── 5 Year Plan/
+│   └── Cash Money Sponsorship/
+└── Strategy/
+    └── Scouting/
 ```
 
-The sync mirrors Markdown files, exports Google Docs as Markdown, exports
-Google Slides as text-backed Markdown, and downloads PDFs for in-browser
-display.
+Each folder can have a `_category_.json` file for custom labels and descriptions.
 
-## API Documentation
+### PDF Embedding in Markdown
 
-The backend provides the following endpoints:
+To embed a PDF in any markdown file:
 
-### Tree Endpoints
+```markdown
+import PdfEmbed from '@site/src/components/PdfEmbed';
 
-- `GET /api/tree/` - Get the complete folder tree structure
-- `GET /api/tree/siblings/{path}` - Get sibling files in a directory
-
-### Document Endpoints
-
-- `GET /api/documents/all` - Get all documents
-- `GET /api/documents/{path}` - Get a specific document
-- `GET /api/documents/search?q={query}` - Search documents
-
-### Health Check
-
-- `GET /health` - API health status
+<PdfEmbed src="/FireBirds-Wiki/assets/your-file.pdf" title="Document Title" />
+```
 
 ## Building for Production
 
-### Build Frontend
-
 ```bash
-npm run frontend:build
+cd website
+npm run build
 ```
 
-The compiled frontend will be in `frontend/dist/`.
+Static files will be in `website/build/`.
 
-### Running Backend in Production
+## Customization
 
-```bash
-cd backend
-python -m uvicorn main:app --host 0.0.0.0 --port 8000
-```
+### Brand Colors
+Edit `website/src/css/custom.css` to change the FireBirds red theme.
 
-## Directory Overview
+### PDF Embed Component
+Located at `website/src/components/PdfEmbed/index.tsx` - customize iframe behavior.
 
-### Backend Services
-
-**markdown_loader.py**
-- Loads and parses markdown files
-- Extracts frontmatter metadata
-- Provides search functionality
-
-**tree_builder.py**
-- Builds folder tree structure from content directory
-- Generates sibling relationships
-
-### Frontend Components
-
-- **Navbar** - Top navigation bar
-- **SearchBar** - Search functionality
-- **FolderTree** - Expandable folder/file tree
-- **FileItem** - Individual file display in tree
-- **DocumentViewer** - Document content display
-- **Breadcrumbs** - Navigation breadcrumbs
-
-### Pages
-
-- **HomePage** - Main wiki view with sidebar and document viewer
-- **DocumentPage** - Individual document view
-- **SearchPage** - Search results view
-
-## Development Tips
-
-1. **Hot Reload**: Both frontend and backend support hot reload during development
-2. **API Proxy**: The frontend is configured to proxy API requests to the backend in development
-3. **TypeScript**: Type-safe frontend development with full TypeScript support
-4. **CSS Modules**: Component-scoped styling with CSS Modules
-
-## Contributing
-
-1. Create a new branch for your changes
-2. Edit content in the `Google Drive` 
-3. Test your changes locally
-4. Commit and push your changes
-5. Create a pull request
-
-## Troubleshooting
-
-### Backend not connecting
-
-- Ensure the backend is running on `http://localhost:8000`
-- Check the `.env.local` file in the frontend directory
-- Verify Python dependencies: `pip install -r requirements.txt`
-
-### Port conflicts
-
-- Backend: Change port in `backend/main.py`
-- Frontend: Change port in `frontend/vite.config.ts`
-
-### Python version issues
-
-- Ensure Python 3.10+ is installed
-- Use a virtual environment: `python -m venv venv`
-- Activate: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (macOS/Linux)
+### Site Configuration
+Edit `website/docusaurus.config.ts` for site metadata, navbar, footer, etc.
 
 ## License
 
 MIT License - See LICENSE.txt for details
-
-## Questions?
-
-For questions or issues, please open an issue on the repository.

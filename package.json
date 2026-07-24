@@ -1,32 +1,26 @@
 {
   "name": "7902-wiki",
-  "description": "Markham FireBirds Wiki - Custom knowledge management system",
+  "description": "Markham FireBirds Wiki - Docusaurus-based knowledge management system",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "backend": "python -m uvicorn backend.main:app --reload",
-    "frontend": "cd frontend && npm run dev",
-    "frontend:build": "cd frontend && npm run build",
-    "install:all": "npm install && cd frontend && npm install",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "build": "npm run frontend:build"
+    "start": "cd website && npm run start",
+    "build": "cd website && npm run build",
+    "serve": "cd website && npm run serve",
+    "clear": "cd website && npm run clear",
+    "sync": "python -m backend.services.sync.drive_sync",
+    "install:all": "cd website && npm install && pip install -r requirements.txt"
   },
   "engines": {
     "npm": ">=9.0.0",
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "keywords": [
     "wiki",
     "frc",
     "knowledge-management",
-    "markdown"
-  ],
-  "dependencies": {
-    "concurrently": "^8.2.2"
-  },
-  "devDependencies": {
-    "typescript": "^5.2.2"
-  }
+    "docusaurus"
+  ]
 }

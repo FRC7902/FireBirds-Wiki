@@ -249,82 +249,73 @@ class SyncManager:
         local_path.parent.mkdir(parents=True, exist_ok=True)
         
         if mime_type == "application/vnd.google-apps.document":
-            # Download as PDF and create markdown wrapper
+            # Download as PDF and create Docusaurus markdown wrapper
             pdf_content = self.drive_client.download_google_doc_pdf(drive_id)
-            # Save PDF to assets
+            # Save PDF to Docusaurus static assets
             asset_name = f"{drive_id}.pdf"
-            asset_path = Path("frontend/public/assets") / asset_name
+            asset_path = Path("website/static/assets") / asset_name
             asset_path.parent.mkdir(parents=True, exist_ok=True)
             asset_path.write_bytes(pdf_content)
             
-            # Create markdown wrapper
+            # Create Docusaurus-compatible markdown with PDF embed
             content = f"""---
-title: {name}
-source_type: google_doc
-source_file_id: {drive_id}
-source_url: https://drive.google.com/open?id={drive_id}
-pdf_url: /assets/{asset_name}
+sidebar_label: "{name}"
+title: "{name}"
 ---
 
 # {name}
 
 This Google Doc is shown below.
 
-<object data="/assets/{asset_name}" type="application/pdf" width="100%" height="800px">
-  <p>Unable to display PDF. <a href="/assets/{asset_name}">Download it</a> instead.</p>
-</object>
+import PdfEmbed from '@site/src/components/PdfEmbed';
+
+<PdfEmbed src="/FireBirds-Wiki/assets/{asset_name}" title="{name}" />
 """
             local_path.write_text(content, encoding='utf-8')
         
         elif mime_type == "application/vnd.google-apps.presentation":
-            # Download as PDF and create markdown wrapper
+            # Download as PDF and create Docusaurus markdown wrapper
             pdf_content = self.drive_client.download_google_slides_pdf(drive_id)
             asset_name = f"{drive_id}.pdf"
-            asset_path = Path("frontend/public/assets") / asset_name
+            asset_path = Path("website/static/assets") / asset_name
             asset_path.parent.mkdir(parents=True, exist_ok=True)
             asset_path.write_bytes(pdf_content)
             
             content = f"""---
-title: {name}
-source_type: google_slides
-source_file_id: {drive_id}
-source_url: https://drive.google.com/open?id={drive_id}
-pdf_url: /assets/{asset_name}
+sidebar_label: "{name}"
+title: "{name}"
 ---
 
 # {name}
 
 This Google Slides presentation is shown below.
 
-<object data="/assets/{asset_name}" type="application/pdf" width="100%" height="800px">
-  <p>Unable to display PDF. <a href="/assets/{asset_name}">Download it</a> instead.</p>
-</object>
+import PdfEmbed from '@site/src/components/PdfEmbed';
+
+<PdfEmbed src="/FireBirds-Wiki/assets/{asset_name}" title="{name}" />
 """
             local_path.write_text(content, encoding='utf-8')
         
         elif mime_type == "application/pdf" or name.lower().endswith('.pdf'):
-            # Download PDF and create markdown wrapper
+            # Download PDF and create Docusaurus markdown wrapper
             pdf_content = self.drive_client.download_file(drive_id)
             asset_name = f"{drive_id}.pdf"
-            asset_path = Path("frontend/public/assets") / asset_name
+            asset_path = Path("website/static/assets") / asset_name
             asset_path.parent.mkdir(parents=True, exist_ok=True)
             asset_path.write_bytes(pdf_content)
             
             content = f"""---
-title: {name}
-source_type: pdf
-source_file_id: {drive_id}
-source_url: https://drive.google.com/open?id={drive_id}
-pdf_url: /assets/{asset_name}
+sidebar_label: "{name}"
+title: "{name}"
 ---
 
 # {name}
 
 This PDF is shown below.
 
-<object data="/assets/{asset_name}" type="application/pdf" width="100%" height="800px">
-  <p>Unable to display PDF. <a href="/assets/{asset_name}">Download it</a> instead.</p>
-</object>
+import PdfEmbed from '@site/src/components/PdfEmbed';
+
+<PdfEmbed src="/FireBirds-Wiki/assets/{asset_name}" title="{name}" />
 """
             local_path.write_text(content, encoding='utf-8')
         

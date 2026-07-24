@@ -1,0 +1,8 @@
+{
+  "label": "CAD",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "CAD models and design documentation."
+  }
+}
