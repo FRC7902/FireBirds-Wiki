@@ -14,7 +14,7 @@ export default function Home(): ReactNode {
       <header className={styles.heroBanner}>
         <div className={styles.heroContainer}>
           <div className={styles.heroLogo}>
-            <img src="/FireBirds-Wiki/img/logo.svg" alt="FireBirds Logo" />
+            <img src="/img/logo.svg" alt="FireBirds Logo" />
           </div>
           <Heading as="h1" className={styles.heroTitle}>
             {siteConfig.title}
