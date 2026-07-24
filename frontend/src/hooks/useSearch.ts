@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { SearchResult } from '@app-types/index';
-import { apiClient } from '@api/client';
+import wikiData from '../generated/wiki-data.json';
+
+const staticDocuments = (wikiData.documents as SearchResult[]) || [];
 
 export const useSearch = () => {
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -16,7 +18,12 @@ export const useSearch = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const searchResults = await apiClient.searchDocuments(query);
+      const normalized = query.toLowerCase();
+      const searchResults = staticDocuments.filter((doc) => {
+        const title = (doc.title || '').toLowerCase();
+        const content = (doc.content || '').toLowerCase();
+        return title.includes(normalized) || content.includes(normalized);
+      });
       setResults(searchResults);
     } catch (err) {
       setError('Failed to search documents');

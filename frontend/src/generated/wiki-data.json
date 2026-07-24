@@ -1,0 +1,185 @@
+{
+  "tree": {
+    "name": "content",
+    "type": "folder",
+    "path": "",
+    "children": [
+      {
+        "name": "01 — Engineering",
+        "type": "folder",
+        "path": "01 — Engineering",
+        "children": [
+          {
+            "name": "CAD",
+            "type": "folder",
+            "path": "01 — Engineering/CAD",
+            "children": [
+              {
+                "name": "CAD.md",
+                "type": "file",
+                "path": "01 — Engineering/CAD/CAD.md",
+                "title": "CAD",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "name": "Manufacturing",
+            "type": "folder",
+            "path": "01 — Engineering/Manufacturing",
+            "children": [
+              {
+                "name": "Manufacturing Overview.md",
+                "type": "file",
+                "path": "01 — Engineering/Manufacturing/Manufacturing Overview.md",
+                "title": "Manufacturing Overview",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "name": "Programming",
+            "type": "folder",
+            "path": "01 — Engineering/Programming",
+            "children": [
+              {
+                "name": "Unit 1 — Java Fundamentals.md",
+                "type": "file",
+                "path": "01 — Engineering/Programming/Training/Unit 1 — Java Fundamentals.md",
+                "title": "Unit 1 — Java Fundamentals",
+                "description": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "02 — Business",
+        "type": "folder",
+        "path": "02 — Business",
+        "children": [
+          {
+            "name": "Awards",
+            "type": "folder",
+            "path": "02 — Business/Awards",
+            "children": [
+              {
+                "name": "Awards Overview.md",
+                "type": "file",
+                "path": "02 — Business/Awards/Awards Overview.md",
+                "title": "Awards Overview",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "name": "Branding",
+            "type": "folder",
+            "path": "02 — Business/Branding",
+            "children": [
+              {
+                "name": "Branding Overview.md",
+                "type": "file",
+                "path": "02 — Business/Branding/Branding Overview.md",
+                "title": "Branding Overview",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "name": "Fundraising",
+            "type": "folder",
+            "path": "02 — Business/Fundraising",
+            "children": [
+              {
+                "name": "Fundraising Overview.md",
+                "type": "file",
+                "path": "02 — Business/Fundraising/Fundraising Overview.md",
+                "title": "Fundraising Overview",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "name": "Outreach",
+            "type": "folder",
+            "path": "02 — Business/Outreach",
+            "children": [
+              {
+                "name": "Outreach Overview.md",
+                "type": "file",
+                "path": "02 — Business/Outreach/Outreach Overview.md",
+                "title": "Outreach Overview",
+                "description": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "03 — Strategy",
+        "type": "folder",
+        "path": "03 — Strategy",
+        "children": [
+          {
+            "name": "Strategy Overview.md",
+            "type": "file",
+            "path": "03 — Strategy/Strategy Overview.md",
+            "title": "Strategy Overview",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  "documents": [
+    {
+      "path": "01 — Engineering/CAD/CAD.md",
+      "title": "CAD",
+      "content": "",
+      "metadata": {}
+    },
+    {
+      "path": "01 — Engineering/Manufacturing/Manufacturing Overview.md",
+      "title": "Manufacturing Overview",
+      "content": "",
+      "metadata": {}
+    },
+    {
+      "path": "01 — Engineering/Programming/Training/Unit 1 — Java Fundamentals.md",
+      "title": "Unit 1 — Java Fundamentals",
+      "content": "",
+      "metadata": {}
+    },
+    {
+      "path": "02 — Business/Awards/Awards Overview.md",
+      "title": "Awards Overview",
+      "content": "",
+      "metadata": {}
+    },
+    {
+      "path": "02 — Business/Branding/Branding Overview.md",
+      "title": "Branding Overview",
+      "content": "",
+      "metadata": {}
+    },
+    {
+      "path": "02 — Business/Fundraising/Fundraising Overview.md",
+      "title": "Fundraising Overview",
+      "content": "",
+      "metadata": {}
+    },
+    {
+      "path": "02 — Business/Outreach/Outreach Overview.md",
+      "title": "Outreach Overview",
+      "content": "",
+      "metadata": {}
+    },
+    {
+      "path": "03 — Strategy/Strategy Overview.md",
+      "title": "Strategy Overview",
+      "content": "",
+      "metadata": {}
+    }
+  ]
+}
