@@ -14,7 +14,7 @@ const config: Config = {
 
   // Set the production url of your site here
   url: 'https://FRC7902.github.io',
-  baseUrl: '/FireBirds-Wiki/',
+  baseUrl: '/',
 
   // GitHub pages deployment config
   organizationName: 'FRC7902',
