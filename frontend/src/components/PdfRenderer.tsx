@@ -27,8 +27,17 @@ export const PdfRenderer: React.FC<PdfRendererProps> = ({ url }) => {
           import.meta.url
         ).toString();
 
+        // Normalize the PDF URL so it works both in dev and in production.
+        // For GitHub Pages, the asset must be available as a static file under the site root.
+        const normalizedUrl = url.startsWith('http')
+          ? url
+          : url.startsWith('/media/')
+            ? url.replace('/media/', '/assets/')
+            : url;
+        const resolvedUrl = normalizedUrl.startsWith('http') ? normalizedUrl : `${window.location.origin}${normalizedUrl}`;
+
         // Load the PDF document
-        const pdf = await pdfjsLib.getDocument({ url }).promise;
+        const pdf = await pdfjsLib.getDocument({ url: resolvedUrl }).promise;
 
         if (cancelled) return;
 

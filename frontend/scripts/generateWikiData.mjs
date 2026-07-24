@@ -17,6 +17,9 @@ const contentRoot = contentRootCandidates.find((candidate) => {
 
 const outputDir = path.join(repoRoot, 'frontend', 'src', 'generated');
 const outputPath = path.join(outputDir, 'wiki-data.json');
+const sourceAssetsDir = path.join(repoRoot, 'Wiki', '_assets', 'drive');
+const publicAssetsDir = path.join(repoRoot, 'frontend', 'public', 'media', '_assets', 'drive');
+const publicRootAssetsDir = path.join(repoRoot, 'frontend', 'public', 'assets');
 
 function parseFrontmatter(rawContent) {
   const normalized = rawContent.replace(/^\uFEFF/, '');
@@ -183,7 +186,27 @@ function walkMarkdownFiles(rootDir) {
   return docs;
 }
 
+function copyAssetFiles() {
+  if (!fs.existsSync(sourceAssetsDir)) {
+    return;
+  }
+
+  fs.mkdirSync(publicAssetsDir, { recursive: true });
+  fs.mkdirSync(publicRootAssetsDir, { recursive: true });
+  const assetFiles = fs.readdirSync(sourceAssetsDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name);
+
+  for (const fileName of assetFiles) {
+    const sourcePath = path.join(sourceAssetsDir, fileName);
+    const destinationPath = path.join(publicAssetsDir, fileName);
+    fs.copyFileSync(sourcePath, destinationPath);
+    fs.copyFileSync(sourcePath, path.join(publicRootAssetsDir, fileName));
+  }
+}
+
 fs.mkdirSync(outputDir, { recursive: true });
+copyAssetFiles();
 const documents = walkMarkdownFiles(contentRoot);
 const tree = buildTree(contentRoot, '');
 
