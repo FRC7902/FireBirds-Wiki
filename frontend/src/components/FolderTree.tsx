@@ -22,7 +22,6 @@ export const FolderTree: React.FC<FolderTreeProps> = ({ node, onSelectFile }) =>
   };
 
   const renderNode = (node: TreeNode, depth: number = 0): React.ReactNode => {
-    const isFolder = node.type === 'folder';
     const isExpanded = expandedFolders.has(node.path);
 
     if (node.type === 'file') {

@@ -3,14 +3,14 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Navbar } from '@components/Navbar';
 import { SearchBar } from '@components/SearchBar';
 import { Breadcrumbs } from '@components/Breadcrumbs';
-import { DocumentViewer } from '@components/DocumentViewer';
+
 import { useSearch } from '@hooks/useSearch';
 import styles from './SearchPage.module.css';
 
 export const SearchPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { results, isLoading, error, search } = useSearch();
+  const { results, isLoading, search } = useSearch();
   const query = searchParams.get('q') || '';
 
   useEffect(() => {

@@ -26,7 +26,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
       >
         🏠 Home
       </button>
-      {items.map((item, index) => (
+      {items.map((item) => (
         <React.Fragment key={item.path}>
           <span className={styles.separator}>/</span>
           <button

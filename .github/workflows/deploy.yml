@@ -35,10 +35,13 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Copy CNAME for custom domain
+        run: cp CNAME frontend/dist/CNAME
+
       - name: Upload production build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: frontend/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
