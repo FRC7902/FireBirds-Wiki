@@ -18,7 +18,7 @@ SLIDES_MIME_TYPE = "application/vnd.google-apps.presentation"
 PDF_MIME_TYPE = "application/pdf"
 ROOT_DIR = Path(__file__).resolve().parents[2]
 WIKI_DIR = Path(os.getenv("WIKI_CONTENT_DIR", ROOT_DIR / "Wiki"))
-ASSET_DIR = WIKI_DIR / "_assets" / "drive"
+ASSET_DIR = ROOT_DIR / "frontend" / "public" / "assets"
 REQUEST_TIMEOUT_SECONDS = 60
 
 
@@ -166,7 +166,7 @@ def mirror_folder(folder_id: str, relative_dir: PurePosixPath, visited: set[str]
                 get_bytes(f"https://docs.google.com/document/d/{file['id']}/export?format=pdf"),
             )
             content = (
-                frontmatter(file, source_type="google_doc", pdf_url=f"/media/_assets/drive/{asset_name}")
+                frontmatter(file, source_type="google_doc", pdf_url=f"/assets/{asset_name}")
                 + f"# {file['name']}\n\nThis Google Doc is shown below.\n"
             )
             write_bytes(destination_dir / f"{name}.md", content.encode("utf-8"))
@@ -177,7 +177,7 @@ def mirror_folder(folder_id: str, relative_dir: PurePosixPath, visited: set[str]
                 get_bytes(f"https://docs.google.com/presentation/d/{file['id']}/export/pdf"),
             )
             content = (
-                frontmatter(file, source_type="google_slides", pdf_url=f"/media/_assets/drive/{asset_name}")
+                frontmatter(file, source_type="google_slides", pdf_url=f"/assets/{asset_name}")
                 + f"# {file['name']}\n\nThis Google Slides presentation is shown below.\n"
             )
             write_bytes(destination_dir / f"{name}.md", content.encode("utf-8"))
@@ -185,7 +185,7 @@ def mirror_folder(folder_id: str, relative_dir: PurePosixPath, visited: set[str]
             asset_name = f"{file['id']}.pdf"
             write_bytes(ASSET_DIR / asset_name, get_bytes(public_download_url(file["id"])))
             content = (
-                frontmatter(file, source_type="pdf", pdf_url=f"/media/_assets/drive/{asset_name}")
+                frontmatter(file, source_type="pdf", pdf_url=f"/assets/{asset_name}")
                 + f"# {file['name']}\n\nThis PDF is shown below.\n"
             )
             write_bytes(destination_dir / f"{name}.md", content.encode("utf-8"))
