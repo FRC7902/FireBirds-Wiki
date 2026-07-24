@@ -3,32 +3,36 @@ import styles from './PdfRenderer.module.css';
 
 interface PdfRendererProps {
   url: string;
+  /** Optional Google Drive file ID for fallback export URL */
+  fileId?: string;
 }
 
-export const PdfRenderer: React.FC<PdfRendererProps> = ({ url }) => {
+export const PdfRenderer: React.FC<PdfRendererProps> = ({ url, fileId }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const retryCountRef = useRef(0);
 
   useEffect(() => {
     let cancelled = false;
+    retryCountRef.current = 0;
+
+    const tryRenderPdf = async (pdfUrl: string) => {
+      const pdfjsLib = await import('pdfjs-dist');
+      pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+        'pdfjs-dist/build/pdf.worker.min.mjs',
+        import.meta.url
+      ).toString();
+
+      return await pdfjsLib.getDocument({ url: pdfUrl }).promise;
+    };
 
     const renderPdf = async () => {
       try {
         setLoading(true);
         setError(null);
 
-        // Dynamically import pdfjs-dist
-        const pdfjsLib = await import('pdfjs-dist');
-
-        // Set worker source from the installed package
-        pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
-          'pdfjs-dist/build/pdf.worker.min.mjs',
-          import.meta.url
-        ).toString();
-
         // Normalize the PDF URL so it works both in dev and in production.
-        // For GitHub Pages, the asset must be available as a static file under the site root.
         const normalizedUrl = url.startsWith('http')
           ? url
           : url.startsWith('/media/')
@@ -36,8 +40,22 @@ export const PdfRenderer: React.FC<PdfRendererProps> = ({ url }) => {
             : url;
         const resolvedUrl = normalizedUrl.startsWith('http') ? normalizedUrl : `${window.location.origin}${normalizedUrl}`;
 
-        // Load the PDF document
-        const pdf = await pdfjsLib.getDocument({ url: resolvedUrl }).promise;
+        let pdf;
+
+        try {
+          // First attempt: load the PDF from the resolved URL
+          pdf = await tryRenderPdf(resolvedUrl);
+        } catch (firstErr) {
+          // If first attempt fails AND we have a fileId, try Google Drive export as fallback
+          if (fileId && retryCountRef.current === 0) {
+            retryCountRef.current = 1;
+            const driveExportUrl = `https://docs.google.com/document/d/${fileId}/export?format=pdf`;
+            console.warn(`PDF load failed for ${resolvedUrl}, retrying with Drive export: ${driveExportUrl}`);
+            pdf = await tryRenderPdf(driveExportUrl);
+          } else {
+            throw firstErr;
+          }
+        }
 
         if (cancelled) return;
 
@@ -84,7 +102,7 @@ export const PdfRenderer: React.FC<PdfRendererProps> = ({ url }) => {
     return () => {
       cancelled = true;
     };
-  }, [url]);
+  }, [url, fileId]);
 
   if (error) {
     return <div className={styles.error}>Error: {error}</div>;

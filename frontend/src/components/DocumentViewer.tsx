@@ -21,6 +21,7 @@ interface Document {
     tags?: string[];
     description?: string;
     pdf_url?: string;
+    source_file_id?: string;
   };
 }
 
@@ -67,7 +68,7 @@ export const DocumentViewer: React.FC<DocumentViewerProps> = ({
       <div className={styles.content}>
         <h1>{document.title}</h1>
         {document.metadata.pdf_url && (
-          <PdfRenderer url={document.metadata.pdf_url} />
+          <PdfRenderer url={document.metadata.pdf_url} fileId={document.metadata.source_file_id} />
         )}
         {document.metadata.description && (
           <p className={styles.description}>{document.metadata.description}</p>

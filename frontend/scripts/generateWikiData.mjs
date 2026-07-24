@@ -186,19 +186,34 @@ function walkMarkdownFiles(rootDir) {
 }
 
 function copyAssetFiles() {
-  if (!fs.existsSync(sourceAssetsDir)) {
-    return;
-  }
+  // Assets can come from two possible source locations:
+  // 1. Wiki/_assets/drive/  (when synced via JS copy-drive-assets.js)
+  // 2. frontend/public/assets/ (when synced via backend/drive_sync.py)
+  const altAssetsDir = path.join(repoRoot, 'frontend', 'public', 'assets');
 
-  fs.mkdirSync(publicAssetsDir, { recursive: true });
-  const assetFiles = fs.readdirSync(sourceAssetsDir, { withFileTypes: true })
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name);
+  if (fs.existsSync(sourceAssetsDir)) {
+    // Primary source: Wiki/_assets/drive/
+    fs.mkdirSync(publicAssetsDir, { recursive: true });
+    const assetFiles = fs.readdirSync(sourceAssetsDir, { withFileTypes: true })
+      .filter((entry) => entry.isFile())
+      .map((entry) => entry.name);
 
-  for (const fileName of assetFiles) {
-    const sourcePath = path.join(sourceAssetsDir, fileName);
-    const destinationPath = path.join(publicAssetsDir, fileName);
-    fs.copyFileSync(sourcePath, destinationPath);
+    for (const fileName of assetFiles) {
+      const sourcePath = path.join(sourceAssetsDir, fileName);
+      const destinationPath = path.join(publicAssetsDir, fileName);
+      fs.copyFileSync(sourcePath, destinationPath);
+    }
+  } else if (fs.existsSync(altAssetsDir)) {
+    // Fallback: assets already exist in frontend/public/assets/ (placed by drive_sync.py)
+    const existingAssets = fs.readdirSync(altAssetsDir, { withFileTypes: true })
+      .filter((entry) => entry.isFile())
+      .map((entry) => entry.name);
+
+    if (existingAssets.length > 0) {
+      console.log(`Assets found in ${altAssetsDir} — using existing assets`);
+    }
+  } else {
+    console.warn(`No asset source found. Expected either:\n  ${sourceAssetsDir}\n  or\n  ${altAssetsDir}`);
   }
 }
 
