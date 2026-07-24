@@ -10,3 +10,5 @@ private/
 .replit
 replit.nix
 .env
+.frontend/node_modules
+.node_modules/
