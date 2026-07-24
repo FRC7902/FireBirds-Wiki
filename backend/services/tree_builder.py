@@ -3,11 +3,23 @@ from pathlib import Path
 from typing import Dict, List, Any
 
 
-class TreeBuilder:
-    """Builds a folder tree structure from the content directory."""
+def _resolve_content_dir(content_dir: str = "Wiki") -> Path:
+    """Resolve the wiki directory, preferring ./Wiki and falling back to ./wiki."""
+    candidates = []
+    if content_dir:
+        candidates.append(Path(content_dir))
+    candidates.extend([Path("Wiki"), Path("wiki")])
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return Path(content_dir or "Wiki")
 
-    def __init__(self, content_dir: str = "Wiki"):
-        self.content_dir = Path(content_dir)
+
+class TreeBuilder:
+    """Builds a folder tree structure from the wiki directory."""
+
+    def __init__(self, content_dir: str = "wiki"):
+        self.content_dir = _resolve_content_dir(content_dir)
 
     def build_tree(self) -> Dict[str, Any]:
         """

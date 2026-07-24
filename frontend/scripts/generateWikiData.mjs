@@ -7,13 +7,13 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..', '..');
 
 const contentRootCandidates = [
-  path.join(repoRoot, 'content'),
   path.join(repoRoot, 'Wiki'),
+  path.join(repoRoot, 'wiki'),
 ];
 
 const contentRoot = contentRootCandidates.find((candidate) => {
   return fs.existsSync(candidate) && fs.statSync(candidate).isDirectory();
-}) || path.join(repoRoot, 'content');
+}) || path.join(repoRoot, 'Wiki');
 
 const outputDir = path.join(repoRoot, 'frontend', 'src', 'generated');
 const outputPath = path.join(outputDir, 'wiki-data.json');

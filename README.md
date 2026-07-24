@@ -42,7 +42,7 @@ The official wiki for Markham FireBirds, FRC Team 7902. Built with FastAPI, Reac
 │   ├── Engineering/
 │   ├── Business/
 │   └── Strategy/
-├── content/                 # Legacy content (kept for reference)
+├── wiki/                    # Preferred wiki content directory
 ├── package.json             # Root package.json
 └── requirements.txt         # Python dependencies
 ```

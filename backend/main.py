@@ -25,9 +25,18 @@ app.add_middleware(
 app.include_router(tree.router)
 app.include_router(documents.router)
 
-# PDF files synced from Drive live under Wiki/_assets and are served to the
-# browser's built-in PDF viewer at /media/.
-WIKI_DIR = Path(__file__).resolve().parents[1] / "Wiki"
+# PDF files synced from Drive live under the wiki content directory and are
+# served to the browser's built-in PDF viewer at /media/.
+def _resolve_wiki_dir() -> Path:
+    repo_root = Path(__file__).resolve().parents[1]
+    candidates = [repo_root / "Wiki", repo_root / "wiki"]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return repo_root / "Wiki"
+
+
+WIKI_DIR = _resolve_wiki_dir()
 WIKI_DIR.mkdir(parents=True, exist_ok=True)
 app.mount("/media", StaticFiles(directory=str(WIKI_DIR)), name="media")
 
