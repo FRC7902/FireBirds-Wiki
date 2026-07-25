@@ -61,17 +61,24 @@ class MetadataManager:
         drive_id: str,
         modified_time: str,
         path: str,
-        local_path: str
+        local_path: str,
+        text_content: str | None = None
     ) -> None:
         """Update metadata for a file."""
         if "files" not in self.data:
             self.data["files"] = {}
         
-        self.data["files"][drive_id] = {
+        file_meta = {
             "modified": modified_time,
             "path": path,
             "local": local_path
         }
+        
+        # Store extracted text for search indexing if provided
+        if text_content is not None:
+            file_meta["text"] = text_content
+        
+        self.data["files"][drive_id] = file_meta
 
     def remove_file_metadata(self, drive_id: str) -> None:
         """Remove metadata for a deleted file."""

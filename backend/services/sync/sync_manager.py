@@ -48,6 +48,37 @@ class SyncManager:
         if self.progress_callback:
             self.progress_callback(kwargs)
 
+    def _format_searchable_text(self, text: str) -> str:
+        """Format extracted text for inclusion in YAML frontmatter.
+        
+        Args:
+            text: Raw extracted text from document
+            
+        Returns:
+            Formatted text with proper indentation for YAML multiline string
+        """
+        if not text:
+            return ""
+        
+        # Clean up the text
+        lines = text.split('\n')
+        
+        # Remove excessive blank lines but preserve paragraph structure
+        cleaned_lines = []
+        prev_blank = False
+        for line in lines:
+            is_blank = not line.strip()
+            if is_blank and prev_blank:
+                continue  # Skip consecutive blank lines
+            cleaned_lines.append(line)
+            prev_blank = is_blank
+        
+        # Indent each line for YAML multiline string (4 spaces)
+        # Keep blank lines as empty strings (no indentation needed)
+        indented_lines = ['    ' + line if line.strip() else '' for line in cleaned_lines]
+        
+        return '\n'.join(indented_lines)
+
     def sync(self, trigger: str = "manual") -> dict[str, Any]:
         """
         Perform synchronization.
@@ -214,15 +245,16 @@ class SyncManager:
                 stats["skipped"] += 1
                 return
             
-            # Download and save file
-            self._download_and_save(drive_file, local_path)
+            # Download and save file, get extracted text
+            text_content = self._download_and_save(drive_file, local_path)
             
-            # Update metadata
+            # Update metadata with extracted text for search indexing
             self.metadata.update_file_metadata(
                 drive_id=drive_id,
                 modified_time=datetime.now(timezone.utc).isoformat(),
                 path=str(drive_file["path"]),
-                local_path=str(local_path.relative_to(self.content_dir))
+                local_path=str(local_path.relative_to(self.content_dir)),
+                text_content=text_content
             )
             
             if file_meta:
@@ -239,28 +271,43 @@ class SyncManager:
             print(f"Error processing file {drive_file.get('name', 'unknown')}: {e}")
             stats["failed"] += 1
 
-    def _download_and_save(self, drive_file: dict[str, Any], local_path: Path) -> None:
-        """Download a file from Drive and save it locally."""
+    def _download_and_save(self, drive_file: dict[str, Any], local_path: Path) -> str | None:
+        """Download a file from Drive and save it locally.
+        
+        Returns:
+            Extracted text content for search indexing, or None if not applicable
+        """
         drive_id = drive_file["id"]
         mime_type = drive_file["mime_type"]
         name = drive_file["name"]
+        text_content = None
         
         # Create parent directories
         local_path.parent.mkdir(parents=True, exist_ok=True)
         
         if mime_type == "application/vnd.google-apps.document":
-            # Download as PDF and create Docusaurus markdown wrapper
+            # Download as PDF and extract text
             pdf_content = self.drive_client.download_google_doc_pdf(drive_id)
+            text_content = self.drive_client.download_google_doc_text(drive_id)
+            
             # Save PDF to Docusaurus static assets
             asset_name = f"{drive_id}.pdf"
             asset_path = Path("website/static/assets") / asset_name
             asset_path.parent.mkdir(parents=True, exist_ok=True)
             asset_path.write_bytes(pdf_content)
             
-            # Create Docusaurus-compatible markdown with PDF embed
+            # Save extracted text for search indexing
+            text_asset_name = f"{drive_id}.txt"
+            text_asset_path = Path("website/static/assets") / text_asset_name
+            text_asset_path.write_text(text_content, encoding='utf-8')
+            
+            # Create Docusaurus-compatible markdown with PDF embed and search metadata
+            # Include extracted text in frontmatter for search indexing
             content = f"""---
 sidebar_label: "{name}"
 title: "{name}"
+searchable_text: |
+{self._format_searchable_text(text_content)}
 ---
 
 # {name}
@@ -274,16 +321,26 @@ import PdfEmbed from '@site/src/components/PdfEmbed';
             local_path.write_text(content, encoding='utf-8')
         
         elif mime_type == "application/vnd.google-apps.presentation":
-            # Download as PDF and create Docusaurus markdown wrapper
+            # Download as PDF and extract text
             pdf_content = self.drive_client.download_google_slides_pdf(drive_id)
+            text_content = self.drive_client.download_google_slides_text(drive_id)
+            
+            # Save PDF to Docusaurus static assets
             asset_name = f"{drive_id}.pdf"
             asset_path = Path("website/static/assets") / asset_name
             asset_path.parent.mkdir(parents=True, exist_ok=True)
             asset_path.write_bytes(pdf_content)
             
+            # Save extracted text for search indexing
+            text_asset_name = f"{drive_id}.txt"
+            text_asset_path = Path("website/static/assets") / text_asset_name
+            text_asset_path.write_text(text_content, encoding='utf-8')
+            
             content = f"""---
 sidebar_label: "{name}"
 title: "{name}"
+searchable_text: |
+{self._format_searchable_text(text_content)}
 ---
 
 # {name}
@@ -323,10 +380,14 @@ import PdfEmbed from '@site/src/components/PdfEmbed';
             # Download markdown directly
             content = self.drive_client.download_file(drive_id)
             local_path.write_bytes(content)
+            # For markdown files, use the content as searchable text
+            text_content = content.decode('utf-8', errors='replace')
         
         else:
             # Unsupported file type
             print(f"Skipping unsupported file: {name} ({mime_type})")
+        
+        return text_content
 
     def _remove_deleted_files(
         self,

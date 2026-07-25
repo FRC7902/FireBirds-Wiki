@@ -143,3 +143,13 @@ class DriveClient:
         """Download Google Slides as PDF."""
         url = f"https://docs.google.com/presentation/d/{file_id}/export/pdf"
         return get_bytes(url)
+
+    def download_google_doc_text(self, file_id: str) -> str:
+        """Download a Google Doc as plain text."""
+        url = f"https://docs.google.com/document/d/{file_id}/export?format=txt"
+        return get_bytes(url).decode('utf-8', errors='replace')
+
+    def download_google_slides_text(self, file_id: str) -> str:
+        """Download Google Slides as plain text."""
+        url = f"https://docs.google.com/presentation/d/{file_id}/export?format=txt"
+        return get_bytes(url).decode('utf-8', errors='replace')

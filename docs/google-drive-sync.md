@@ -51,15 +51,17 @@ React Documentation Website
 - Smart commits: GitHub Actions checks for changes before committing
 
 ### File Type Support
-- **Google Docs** → PDF + Markdown wrapper
+- **Google Docs** → PDF + TXT + Markdown wrapper with searchable text metadata
 - **Google Sheets** → CSV download
+- **Google Slides** → PDF + TXT + Markdown wrapper with searchable text metadata
 - **PDFs** → Direct download with Markdown wrapper
-- **Markdown** → Direct copy
+- **Markdown** → Direct copy with searchable text metadata
 - **Images** → Direct download
 
 ### Metadata Management
 - Stores last sync timestamp
 - Tracks each file's Drive ID, modification time, and local path
+- **Extracts and stores full text content** from Google Docs and Google Slides for search indexing
 - Enables efficient change detection
 - Maintains sync history (last 20 entries)
 
@@ -161,7 +163,49 @@ git pull
 cat sync.log
 ```
 
-### Manual Synchronization
+### Manual Synchronization - Command Line
+
+You can run the sync manually from your local machine:
+
+```bash
+# Set the required environment variable
+export GOOGLE_DRIVE_FOLDER_URL="https://drive.google.com/drive/folders/YOUR_FOLDER_ID"
+
+# Run the sync (from project root)
+python -m backend.services.sync.drive_sync
+
+# Or specify a custom content directory
+python -m backend.services.sync.drive_sync --content-dir ./website/docs
+```
+
+**Windows (Command Prompt):**
+```cmd
+# Set environment variable
+set GOOGLE_DRIVE_FOLDER_URL=https://drive.google.com/drive/folders/YOUR_FOLDER_ID
+
+# Run the sync
+python -m backend.services.sync.drive_sync
+```
+
+**Windows (PowerShell):**
+```powershell
+# Set environment variable
+$env:GOOGLE_DRIVE_FOLDER_URL="https://drive.google.com/drive/folders/YOUR_FOLDER_ID"
+
+# Run the sync
+python -m backend.services.sync.drive_sync
+```
+
+**Using a .env file:**
+```bash
+# Create a .env file in the project root
+echo GOOGLE_DRIVE_FOLDER_URL=https://drive.google.com/drive/folders/YOUR_FOLDER_ID > .env
+
+# Run the sync (it will automatically load from .env)
+python -m backend.services.sync.drive_sync
+```
+
+### Manual Synchronization - GitHub Actions
 
 **From Admin Panel**:
 1. Go to `http://localhost:5173/admin`
@@ -172,7 +216,7 @@ cat sync.log
 **From GitHub UI** (Recommended for manual syncs):
 1. Navigate to your GitHub repository
 2. Click the **Actions** tab at the top
-3. In the left sidebar, click **"Sync Google Drive"** workflow
+3. In the left sidebar, click **"Sync Google Drive & Deploy"** workflow
 4. Click the **"Run workflow"** button
 5. Select the branch (usually `main` or `master`)
 6. Click **"Run workflow"** again to confirm
@@ -185,13 +229,14 @@ cat sync.log
 Repository Page
 ├── Actions tab (top menu)
 │   ├── Workflows (left sidebar)
-│   │   └── Sync Google Drive
+│   │   └── Sync Google Drive & Deploy
 │   │       ├── Run workflow button (top right)
 │   │       ├── Select branch dropdown
 │   │       └── Run workflow button (green)
 │   └── Recent Workflow Runs
 │       └── Click to view logs and progress
 ```
+
 
 ### API Endpoints
 
@@ -262,8 +307,15 @@ backend/
     ├── auth.py           # JWT authentication
     └── sync/
         ├── drive_client.py    # Google Drive API client
+        │                        - Downloads files from Drive
+        │                        - Exports Google Docs/Slides as PDF
+        │                        - Exports Google Docs/Slides as plain text
         ├── sync_manager.py    # Core sync logic
+        │                        - Downloads PDF and TXT for each document
+        │                        - Saves text to frontmatter for search indexing
+        │                        - Formats text for YAML frontmatter
         ├── metadata.py        # Metadata management
+        │                        - Stores extracted text in metadata.json
         └── logger.py          # Logging utilities
 
 .github/
@@ -298,7 +350,8 @@ frontend/src/
     "driveId123": {
       "modified": "2026-07-23T15:30:00Z",
       "path": "Engineering/CAD",
-      "local": "Engineering/CAD/CAD Overview.md"
+      "local": "Engineering/CAD/CAD Overview.md",
+      "text": "Full extracted text content from the document for search indexing..."
     }
   },
   "syncHistory": [
@@ -314,6 +367,37 @@ frontend/src/
     }
   ]
 }
+```
+
+### Searchable Text Storage
+
+For Google Docs and Google Slides, the sync system:
+
+1. **Downloads as PDF** - For viewing and downloading by users
+2. **Downloads as TXT** - Plain text extraction (flattened formatting)
+3. **Embeds in Markdown frontmatter** - Adds `searchable_text` field to the generated `.md` file
+4. **Stores in metadata.json** - Saves full text for backend search indexing
+
+Example generated markdown file:
+
+```markdown
+---
+sidebar_label: "Document Title"
+title: "Document Title"
+searchable_text: |
+    This is the extracted text from the Google Doc.
+    It includes all content but formatting is flattened.
+    
+    Headings, lists, and tables are converted to plain text.
+---
+
+# Document Title
+
+This Google Doc is shown below.
+
+import PdfEmbed from '@site/src/components/PdfEmbed';
+
+<PdfEmbed src="/FireBirds-Wiki/assets/{drive_id}.pdf" title="Document Title" />
 ```
 
 ## Logging
@@ -373,6 +457,44 @@ The sync system is modular and can be extended to support other storage provider
 - **Dropbox**: Implement `DropboxClient`
 
 The frontend React components remain unchanged - only the backend sync service needs modification.
+
+### Adding New Document Types
+
+To add support for new document types with text extraction:
+
+1. **Add download method** in `drive_client.py`:
+   ```python
+   def download_new_type_pdf(self, file_id: str) -> bytes:
+       """Download new type as PDF."""
+       url = f"https://example.com/export/pdf"
+       return get_bytes(url)
+   
+   def download_new_type_text(self, file_id: str) -> str:
+       """Download new type as plain text."""
+       url = f"https://example.com/export/txt"
+       return get_bytes(url).decode('utf-8', errors='replace')
+   ```
+
+2. **Add processing logic** in `sync_manager.py` `_download_and_save()`:
+   ```python
+   elif mime_type == "application/vnd.new-type":
+       pdf_content = self.drive_client.download_new_type_pdf(drive_id)
+       text_content = self.drive_client.download_new_type_text(drive_id)
+       
+       # Save PDF and text files
+       asset_path.write_bytes(pdf_content)
+       text_asset_path.write_text(text_content, encoding='utf-8')
+       
+       # Create markdown with searchable text
+       content = f"""---
+       searchable_text: |
+       {self._format_searchable_text(text_content)}
+       ---
+       ...
+       """
+   ```
+
+3. **Update MIME type checks** in `_process_drive_file()` and `_remove_deleted_files()`
 
 ## Troubleshooting
 
