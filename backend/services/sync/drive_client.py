@@ -93,7 +93,8 @@ def public_folder_items(folder_id: str) -> Iterator[dict[str, str]]:
     listing = bytes(encoded_listing, "utf-8").decode("unicode_escape")
     item_pattern = re.compile(
         r'\["(?P<id>[A-Za-z0-9_-]+)",\["[A-Za-z0-9_-]+"\],'
-        r'"(?P<name>.*?)","(?P<mime>application\\?/[^"\\]+)"',
+        r'"(?P<name>.*?)","(?P<mime>application\\?/[^"\\]+)"'
+        r'(?:,"(?P<modified_time>[^"]*)")?',
     )
     seen_ids: set[str] = set()
     for match in item_pattern.finditer(listing):
@@ -105,6 +106,7 @@ def public_folder_items(folder_id: str) -> Iterator[dict[str, str]]:
             "id": item_id,
             "name": html.unescape(match.group("name")),
             "mimeType": match.group("mime").replace("\\/", "/"),
+            "modifiedTime": match.group("modified_time") or "",
         }
 
 

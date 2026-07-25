@@ -79,6 +79,33 @@ class SyncManager:
         
         return '\n'.join(indented_lines)
 
+    def _extract_pdf_text(self, pdf_content: bytes) -> str:
+        """Extract text from PDF content.
+        
+        Args:
+            pdf_content: Raw PDF bytes
+            
+        Returns:
+            Extracted text content
+        """
+        try:
+            import io
+            from PyPDF2 import PdfReader
+            
+            pdf_file = io.BytesIO(pdf_content)
+            reader = PdfReader(pdf_file)
+            
+            text_parts = []
+            for page in reader.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text_parts.append(page_text)
+            
+            return '\n'.join(text_parts)
+        except Exception as e:
+            print(f"Warning: Failed to extract PDF text: {e}")
+            return ""
+
     def sync(self, trigger: str = "manual") -> dict[str, Any]:
         """
         Perform synchronization.
@@ -191,7 +218,8 @@ class SyncManager:
                             "safe_name": safe_filename,
                             "mime_type": mime_type,
                             "path": str(relative_path) if relative_path else "",
-                            "relative_path": relative_path / safe_filename if relative_path else PurePosixPath(safe_filename)
+                            "relative_path": relative_path / safe_filename if relative_path else PurePosixPath(safe_filename),
+                            "modified_time": item.get("modifiedTime", ""),
                         })
             except Exception as e:
                 print(f"Error scanning folder {folder_id}: {e}")
@@ -237,13 +265,15 @@ class SyncManager:
             # Check if file needs update
             file_meta = self.metadata.get_file_metadata(drive_id)
             
-            # For now, we'll use a simple approach - check if file exists
-            # In a real implementation, you'd check Drive's modifiedTime
-            if file_meta and local_path.exists():
-                # File exists and has metadata - skip for now
-                # TODO: Implement proper modified time checking
-                stats["skipped"] += 1
-                return
+            # Get Drive modified time for incremental sync
+            drive_modified_time = drive_file.get("modified_time", "")
+            
+            # Skip if file hasn't changed (incremental sync)
+            if file_meta and drive_modified_time:
+                if not self.metadata.is_file_modified(drive_id, drive_modified_time):
+                    stats["skipped"] += 1
+                    self._update_progress(current=f"Skipped {relative_path} (unchanged)")
+                    return
             
             # Download and save file, get extracted text
             text_content = self._download_and_save(drive_file, local_path)
@@ -251,7 +281,7 @@ class SyncManager:
             # Update metadata with extracted text for search indexing
             self.metadata.update_file_metadata(
                 drive_id=drive_id,
-                modified_time=datetime.now(timezone.utc).isoformat(),
+                modified_time=drive_modified_time or datetime.now(timezone.utc).isoformat(),
                 path=str(drive_file["path"]),
                 local_path=str(local_path.relative_to(self.content_dir)),
                 text_content=text_content
@@ -361,9 +391,20 @@ import PdfEmbed from '@site/src/components/PdfEmbed';
             asset_path.parent.mkdir(parents=True, exist_ok=True)
             asset_path.write_bytes(pdf_content)
             
+            # Extract text from PDF for search indexing
+            text_content = self._extract_pdf_text(pdf_content)
+            
+            # Save extracted text for search indexing
+            text_asset_name = f"{drive_id}.txt"
+            text_asset_path = Path("website/static/assets") / text_asset_name
+            text_asset_path.write_text(text_content, encoding='utf-8')
+            
+            # Create Docusaurus-compatible markdown with PDF embed and search metadata
             content = f"""---
 sidebar_label: "{name}"
 title: "{name}"
+searchable_text: |
+{self._format_searchable_text(text_content)}
 ---
 
 # {name}

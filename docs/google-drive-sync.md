@@ -134,7 +134,26 @@ For GitHub Actions to access your Google Drive folder:
 pip install -r requirements.txt
 ```
 
-### 5. Start the Backend (Optional)
+### 5. Start the Development Website
+
+To preview the documentation website locally:
+
+```bash
+# Navigate to the website directory
+cd website
+
+# Install dependencies (first time only)
+npm install
+
+# Start the development server
+npm start
+```
+
+The website will be available at `http://localhost:3000`
+
+**Note:** The development server will automatically rebuild when you make changes to the documentation files.
+
+### 6. Start the Backend (Optional)
 
 The backend is only needed for the admin panel. The actual sync runs in GitHub Actions.
 
