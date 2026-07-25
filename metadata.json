@@ -1,0 +1,32 @@
+{
+  "lastSync": "2026-07-25T00:37:06.230873Z",
+  "files": {
+    "1Up_2IOXWOCsKraRqoPLEGXdm8j05xQnTx7Di6qjhpmE": {
+      "modified": "2026-07-25T00:37:00.227828+00:00",
+      "path": "Business/5 Year Plan",
+      "local": "Business\\5 Year Plan\\Untitled document.md"
+    },
+    "1cbTbVVepX59PR_u6JpMisOKsO8Q8i5UXpDFKGMFbCvA": {
+      "modified": "2026-07-25T00:37:01.716323+00:00",
+      "path": "Business/5 Year Plan",
+      "local": "Business\\5 Year Plan\\Untitled presentation.md"
+    },
+    "1yPHUmJpYAzF_TTShJwmVOl_qsxDlCWRk": {
+      "modified": "2026-07-25T00:37:06.230731+00:00",
+      "path": "Engineering/Manufacturing",
+      "local": "Engineering\\Manufacturing\\Manufacturing Curriculum.pdf.md"
+    }
+  },
+  "syncHistory": [
+    {
+      "timestamp": "2026-07-25T00:37:06.232269Z",
+      "status": "completed",
+      "new": 3,
+      "updated": 0,
+      "deleted": 0,
+      "skipped": 0,
+      "duration": "17.3s",
+      "trigger": "automatic"
+    }
+  ]
+}

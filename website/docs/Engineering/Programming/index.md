@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Programming Overview"
 title: "Programming"
+sidebar_position: 0
 ---
 
 # Programming

@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Scouting Overview"
 title: "Scouting"
+sidebar_position: 0
 ---
 
 # Scouting

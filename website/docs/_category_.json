@@ -1,8 +1,3 @@
 {
-  "label": "Wiki Home",
-  "position": 1,
-  "link": {
-    "type": "generated-index",
-    "description": "Markham FireBirds Wiki - FRC Team 7902 Knowledge Base"
-  }
+  "label": "Wiki Home"
 }

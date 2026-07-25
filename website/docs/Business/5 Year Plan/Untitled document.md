@@ -1,6 +1,7 @@
 ---
-sidebar_label: "Business 5 Year Plan"
+sidebar_label: "Untitled document"
 title: "Untitled document"
+sidebar_position: 2
 ---
 
 # Untitled document

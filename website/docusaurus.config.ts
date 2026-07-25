@@ -92,15 +92,15 @@ const config: Config = {
           items: [
             {
               label: 'Engineering',
-              to: '/docs/category/engineering',
+              to: '/docs/engineering',
             },
             {
               label: 'Business',
-              to: '/docs/category/business',
+              to: '/docs/business',
             },
             {
               label: 'Strategy',
-              to: '/docs/category/strategy',
+              to: '/docs/strategy',
             },
           ],
         },

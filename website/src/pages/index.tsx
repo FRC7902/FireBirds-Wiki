@@ -25,13 +25,13 @@ export default function Home(): ReactNode {
             contains documentation across Engineering, Business, and Strategy.
           </p>
           <div className={styles.heroButtons}>
-            <Link className={styles.primaryButton} to="/docs/category/engineering">
+            <Link className={styles.primaryButton} to="/docs/engineering">
               Engineering
             </Link>
-            <Link className={styles.primaryButton} to="/docs/category/business">
+            <Link className={styles.primaryButton} to="/docs/business">
               Business
             </Link>
-            <Link className={styles.primaryButton} to="/docs/category/strategy">
+            <Link className={styles.primaryButton} to="/docs/strategy">
               Strategy
             </Link>
           </div>
@@ -44,7 +44,7 @@ export default function Home(): ReactNode {
             CAD models, manufacturing processes, programming resources, and
             technical documentation for FRC Team 7902.
           </p>
-          <Link to="/docs/category/engineering">Browse Engineering &rarr;</Link>
+          <Link to="/docs/engineering">Browse Engineering &rarr;</Link>
         </section>
         <section className={styles.section}>
           <Heading as="h2">Business</Heading>
@@ -52,7 +52,7 @@ export default function Home(): ReactNode {
             Awards, branding, fundraising, outreach, and 5-year planning for
             the Markham FireBirds organization.
           </p>
-          <Link to="/docs/category/business">Browse Business &rarr;</Link>
+          <Link to="/docs/business">Browse Business &rarr;</Link>
         </section>
         <section className={styles.section}>
           <Heading as="h2">Strategy</Heading>
@@ -60,7 +60,7 @@ export default function Home(): ReactNode {
             Scouting strategies, match analysis, and game planning for
             competitive robotics.
           </p>
-          <Link to="/docs/category/strategy">Browse Strategy &rarr;</Link>
+          <Link to="/docs/strategy">Browse Strategy &rarr;</Link>
         </section>
       </main>
     </Layout>

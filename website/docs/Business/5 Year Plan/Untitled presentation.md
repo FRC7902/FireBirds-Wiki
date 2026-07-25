@@ -1,6 +1,7 @@
 ---
-sidebar_label: "Business 5 Year Plan Presentation"
+sidebar_label: "Untitled presentation"
 title: "Untitled presentation"
+sidebar_position: 3
 ---
 
 # Untitled presentation

@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Strategy Overview"
 title: "Strategy"
+sidebar_position: 0
 ---
 
 # Strategy
