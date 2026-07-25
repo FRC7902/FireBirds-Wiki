@@ -47,7 +47,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add website/docs/ website/static/assets/ metadata.json
+          git add website/docs/ website/static/assets/ website/static/docs/ metadata.json
 
           git diff --cached --quiet || git commit -m "Auto-sync: Update documentation from Google Drive
 
