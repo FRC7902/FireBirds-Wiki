@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import re
 import shutil
 import time
 from datetime import datetime, timezone
@@ -69,6 +70,11 @@ class SyncManager:
         """
         if not text:
             return ""
+
+        # Strip non-printable characters (except common whitespace: \n, \r, \t)
+        # This prevents YAML parsing errors from control characters like U+0088
+        import re
+        text = re.sub(r'[^\x20-\x7E\x0A\x0D\x09\xA0-\xFF\u0100-\uFFFF]', '', text)
 
         # Clean up the text
         lines = text.split('\n')
@@ -324,7 +330,8 @@ class SyncManager:
         name: str,
         asset_relative_path: str,
         text_content: str | None,
-        description: str = "This PDF is shown below."
+        description: str = "This PDF is shown below.",
+        relative_path: str | None = None,
     ) -> str:
         """Generate Markdown content with hidden searchable text block.
 
@@ -333,6 +340,7 @@ class SyncManager:
             asset_relative_path: Relative path to the PDF asset
             text_content: Extracted text content for hidden searchable block
             description: Description text to show above the PDF
+            relative_path: Relative path for slug generation (to handle special chars in filenames)
 
         Returns:
             Markdown content string
@@ -345,8 +353,16 @@ class SyncManager:
         frontmatter = f"""---
 title: "{name}"
 sidebar_label: "{name}"
----
 """
+
+        # Add slug if the name contains characters that could break Docusaurus slug generation
+        if relative_path and not re.match(r'^[a-zA-Z0-9_\-./]+$', relative_path):
+            # Generate a safe slug by replacing special characters
+            safe_slug = re.sub(r'[^a-zA-Z0-9_\-/]', '-', relative_path)
+            safe_slug = re.sub(r'-+', '-', safe_slug).strip('-')
+            frontmatter += f'slug: /{safe_slug}\n'
+
+        frontmatter += "---\n"
 
         # Build body with download link
         body = f"""

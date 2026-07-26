@@ -1,6 +1,7 @@
 ---
 sidebar_label: "26-MPO-### 'Descriptive Name'"
 title: "26-MPO-### 'Descriptive Name'"
+slug: /Engineering/Manufacturing/26-MPO-Descriptive-Name
 searchable_text: |
     ﻿PURCHASE ORDER  
     FRC Team 7902

@@ -1148,15 +1148,15 @@ searchable_text: |
     47
     FRC 7902: Markham Firebirds
     Use safety glasses when:
-    You are performing any work on the robot from grinding, drilling, soldering, cutting, welding,
+    You are performing any work on the robot from grinding, drilling, soldering, cutting, welding,
     e.t.c.
-    There is a risk of flying objects or exposure to chemicals such as splatter, splashes, and/or
+    There is a risk of flying objects or exposure to chemicals such as splatter, splashes, and/or
     sprays
     Wear safety glasses at FIRST events when:
-    You’re anywhere in the pits
-    You’re anywhere near the arena including the playing field
-    You’re on the practice field
-    You see signs indicating you need safety glasses
+    You’re anywhere in the pits
+    You’re anywhere near the arena including the playing field
+    You’re on the practice field
+    You see signs indicating you need safety glasses
     10.1.2 Safety Glasses and Protection Eyewear
     Safety glasses and protective eyewear play a critical role in creating a protective barrier around
     the eyes, shielding them from potential hazards like flying projectiles, splashes, and compressed air,
@@ -1283,12 +1283,12 @@ searchable_text: |
     strates the team’s commitment to the well-being of its members, enhancing the overall experience
     and productivity during robot assembly and maintenance.
     Before working on the robot, double check to make sure:
-    Loose drawstrings tucked away
-    Long hair tied
-    You have necessary PPE equipment
+    Loose drawstrings tucked away
+    Long hair tied
+    You have necessary PPE equipment
     53
     FRC 7902: Markham Firebirds
-    Foot protection is worn(No open toed footwear permitted when working on or around the
+    Foot protection is worn(No open toed footwear permitted when working on or around the
     robot)
     10.2.4 Robot Safety Conclusion
     In conclusion, safety is paramount when interacting with the robot, and it is crucial to follow
@@ -1375,15 +1375,15 @@ searchable_text: |
     taken to follow a few important rules:
     Proper Handling: Always handle equipment with care and follow the manufacturer’s guidelines and
     instructions. Mishandling equipment can lead to accidents or damage to the equipment itself.
-    Storage and Transportation : Store and transport equipment appropriately to prevent any
+    Storage and Transportation : Store and transport equipment appropriately to prevent any
     damage or potential hazards. Securely store batteries and tools to avoid accidents or mishaps.
-    Battery Safety : Batteries are a crucial component of the robot and should be handled with
+    Battery Safety : Batteries are a crucial component of the robot and should be handled with
     care. Follow battery safety guidelines, such as proper charging, storage, and handling, to avoid
     incidents like overheating or leakage.
-    Tool Safety : When using hand tools, ensure they are in good working condition and use
+    Tool Safety : When using hand tools, ensure they are in good working condition and use
     them only for their intended purposes. Maintain a clean and organised workspace to prevent
     accidents caused by misplaced tools.
-    Personal Protective Equipment (PPE) : Depending on the equipment being handled,
+    Personal Protective Equipment (PPE) : Depending on the equipment being handled,
     wearing appropriate PPE such as safety glasses or gloves may be necessary to protect yourself
     from potential hazards.
     57
@@ -1444,33 +1444,33 @@ searchable_text: |
     Before using or handling any hazardous material, team members should review the corresponding
     SDS to understand the potential risks and necessary safety precautions.
     SDS typically includes the following information:
-    Identification: The product name, manufacturer information, and emergency contact details
+    Identification: The product name, manufacturer information, and emergency contact details
     are provided.
-    Hazard Identification: This section outlines the potential hazards associated with the sub-
+    Hazard Identification: This section outlines the potential hazards associated with the sub-
     stance, including physical, health, and environmental hazards.
-    Composition/Ingredients: The SDS lists the ingredients of the material and their respective
+    Composition/Ingredients: The SDS lists the ingredients of the material and their respective
     concentration levels.
-    First Aid Measures: Information on first aid procedures to be followed in case of exposure or
+    First Aid Measures: Information on first aid procedures to be followed in case of exposure or
     contact with the hazardous material.
     60
     FRC 7902: Markham Firebirds
-    Firefighting Measures: Instructions on how to handle fires involving the substance and suitable
+    Firefighting Measures: Instructions on how to handle fires involving the substance and suitable
     fire-extinguishing methods.
-    Accidental Release Measures: Steps to be taken in the event of a spill or release of the material.
-    Handling and Storage: Safety guidelines for proper handling, storage, and transportation of
+    Accidental Release Measures: Steps to be taken in the event of a spill or release of the material.
+    Handling and Storage: Safety guidelines for proper handling, storage, and transportation of
     the substance.
-    Exposure Controls/Personal Protection: Information on protective measures and personal
+    Exposure Controls/Personal Protection: Information on protective measures and personal
     protective equipment (PPE) required when handling the material.
-    Physical and Chemical Properties: Details about the physical and chemical characteristics of
+    Physical and Chemical Properties: Details about the physical and chemical characteristics of
     the substance.
-    Stability and Reactivity: Information on the stability of the material and any potential reac-
+    Stability and Reactivity: Information on the stability of the material and any potential reac-
     tions with other substances.
-    Toxicological Information: Data related to the toxicological properties of the substance.
-    Ecological Information: The impact of the material on the environment.
-    Disposal Considerations: Proper methods of disposing of the material.
-    Transport Information: Guidelines for the safe transportation of the substance.
-    Regulatory Information: Relevant regulatory information and compliance requirements.
-    Other Information: Additional relevant information that is not covered in the above sections.
+    Toxicological Information: Data related to the toxicological properties of the substance.
+    Ecological Information: The impact of the material on the environment.
+    Disposal Considerations: Proper methods of disposing of the material.
+    Transport Information: Guidelines for the safe transportation of the substance.
+    Regulatory Information: Relevant regulatory information and compliance requirements.
+    Other Information: Additional relevant information that is not covered in the above sections.
     61
     FRC 7902: Markham Firebirds
     SDS serves as a valuable resource to ensure that team members are well-informed and can handle
@@ -1620,23 +1620,23 @@ searchable_text: |
     nents much more efficient. When using this tool, it is crucial to prioritise safety and follow the
     recommended guidelines:
     Use:
-    Drilling: The power drill is employed to create precise holes in various materials, such as wood,
+    Drilling: The power drill is employed to create precise holes in various materials, such as wood,
     metal, or plastic. These holes serve as anchor points for screws, bolts, or other fasteners.
-    Screwdriving: The power drill can be equipped with a screwdriver bit to quickly and effectively
+    Screwdriving: The power drill can be equipped with a screwdriver bit to quickly and effectively
     drive screws into the material.
     Safety while using:
-    Wear safety glasses to protect your eyes from flying debris and potential hazards.
-    Keep drill bits sharp for efficient drilling and to reduce the risk of accidents.
-    Ensure cords are kept away from cutting areas to prevent tripping hazards and potential
+    Wear safety glasses to protect your eyes from flying debris and potential hazards.
+    Keep drill bits sharp for efficient drilling and to reduce the risk of accidents.
+    Ensure cords are kept away from cutting areas to prevent tripping hazards and potential
     damage to the cord.
-    Check wires for any signs of damage or frays before using the drill to avoid electrical hazards.
-    Tighten the chuck securely to ensure drill bits stay in place during operation.
-    Always secure the workpiece firmly to prevent movement during drilling or screwing.
-    When drilling a large hole, start with a small pivot hole to guide the drill and prevent slipping.
-    Avoid using bent drill bits, as they can lead to inaccurate drilling and potential damage.
+    Check wires for any signs of damage or frays before using the drill to avoid electrical hazards.
+    Tighten the chuck securely to ensure drill bits stay in place during operation.
+    Always secure the workpiece firmly to prevent movement during drilling or screwing.
+    When drilling a large hole, start with a small pivot hole to guide the drill and prevent slipping.
+    Avoid using bent drill bits, as they can lead to inaccurate drilling and potential damage.
     68
     FRC 7902: Markham Firebirds
-    Do not reach under or over the workpiece while the drill is in operation to prevent accidental
+    Do not reach under or over the workpiece while the drill is in operation to prevent accidental
     contact with moving parts.
     By understanding the proper use and following these safety measures, you can maximise the efficiency
     and minimise the risk of accidents and injuries while using a portable power drill.
@@ -1645,23 +1645,23 @@ searchable_text: |
     compared to a regular power drill. It is essential to understand their specific use and adhere to
     safety guidelines to prevent accidents and ensure effective operation:
     Use:
-    Screwdriving: Impact drivers are designed solely for fastening screws or bolts into various
+    Screwdriving: Impact drivers are designed solely for fastening screws or bolts into various
     materials, providing higher torque than a standard power drill.
     NOT FOR DRILLING: Unlike a power drill, an impact driver is not suitable for drilling holes in
     materials.
     Safety while using:
-    Wear safety glasses to protect your eyes from potential hazards and flying debris.
-    Check wires for any signs of damage or frays before using the impact driver to avoid electrical
+    Wear safety glasses to protect your eyes from potential hazards and flying debris.
+    Check wires for any signs of damage or frays before using the impact driver to avoid electrical
     risks.
-    Tighten the chuck securely to ensure the bit remains firmly in place during operation.
-    Always secure the workpiece firmly before screwdriving to prevent movement.
+    Tighten the chuck securely to ensure the bit remains firmly in place during operation.
+    Always secure the workpiece firmly before screwdriving to prevent movement.
     69
     FRC 7902: Markham Firebirds
-    When screwing in a bolt, it is advisable to drill a small pivot hole first to guide the fastener
+    When screwing in a bolt, it is advisable to drill a small pivot hole first to guide the fastener
     accurately.
-    Avoid reaching under or over the workpiece while using the impact driver to prevent accidental
+    Avoid reaching under or over the workpiece while using the impact driver to prevent accidental
     contact with moving parts.
-    Use the correct chuck for the specific bit, as there may be multiple types of the same bit that
+    Use the correct chuck for the specific bit, as there may be multiple types of the same bit that
     require different chucks.
     TIP: When using an impact driver to remove screws, press towards the direction the screw is facing
     to allow the threads to have a better grip on the material, making the removal process more effective.
@@ -1669,21 +1669,21 @@ searchable_text: |
     safely and efficiently when fastening screws or bolts without the risk of damage or accidents.
     11.1.3 Handsaws
     Use:
-    Hand saws are used to cut through wood into small, precise pieces.
+    Hand saws are used to cut through wood into small, precise pieces.
     Safety while using:
-    Check the saw blade for any damage or defects before use to ensure safe cutting.
-    Wear safety glasses to protect your eyes from potential flying wood particles or debris.
-    Start cutting carefully and slowly to prevent the saw blade from jumping or binding during
+    Check the saw blade for any damage or defects before use to ensure safe cutting.
+    Wear safety glasses to protect your eyes from potential flying wood particles or debris.
+    Start cutting carefully and slowly to prevent the saw blade from jumping or binding during
     the cut.
     70
     FRC 7902: Markham Firebirds
-    Apply pressure on downward strokes only, avoiding any lateral or sideways pressure on the
+    Apply pressure on downward strokes only, avoiding any lateral or sideways pressure on the
     blade.
-    Hold the wood stock firmly in place with clamps or a stable surface to ensure stability during
+    Hold the wood stock firmly in place with clamps or a stable surface to ensure stability during
     cutting.
-    Keep the saw blade clean and free from sawdust or debris buildup for better cutting perfor-
+    Keep the saw blade clean and free from sawdust or debris buildup for better cutting perfor-
     mance.
-    Do not twist the saw or the wood when applying pressure during the cut to maintain control
+    Do not twist the saw or the wood when applying pressure during the cut to maintain control
     and accuracy.
     By adhering to these safety guidelines, you can use hand saws effectively and reduce the risk of
     accidents or injuries while cutting wood. Remember to prioritise safety at all times, and if you are
@@ -1691,21 +1691,21 @@ searchable_text: |
     proper and safe operation.
     11.1.4 Screwdrivers
     Use:
-    Screwdrivers are used to screw in screws.
+    Screwdrivers are used to screw in screws.
     Safety while using:
-    Use the correct screwdriver for the type and size of screw you are working with to ensure a
+    Use the correct screwdriver for the type and size of screw you are working with to ensure a
     proper fit and prevent damage to the screw head.
-    Wear safety glasses to protect your eyes from any potential flying particles or debris while
+    Wear safety glasses to protect your eyes from any potential flying particles or debris while
     using the screwdriver.
     71
     FRC 7902: Markham Firebirds
-    If a conventional screwdriver cannot be safely used due to limited access, use an offset screw-
+    If a conventional screwdriver cannot be safely used due to limited access, use an offset screw-
     driver for better reach and control.
-    Do not apply excessive force or push against the screwdriver with more force than necessary
+    Do not apply excessive force or push against the screwdriver with more force than necessary
     to keep the screw in place; this may lead to slipping or damaging the screw head.
-    Avoid holding the workpiece with one hand while using the screwdriver with the other hand;
+    Avoid holding the workpiece with one hand while using the screwdriver with the other hand;
     instead, secure the workpiece using clamps or a stable surface.
-    Do not use defective or broken screwdrivers, as they may lead to slipping or breaking during
+    Do not use defective or broken screwdrivers, as they may lead to slipping or breaking during
     use, increasing the risk of injury.
     By following these safety measures, you can use screwdrivers safely and efficiently. Always prioritise
     safety and use the right tool for the job to minimise the risk of accidents and ensure successful
@@ -1713,21 +1713,21 @@ searchable_text: |
     experienced team member to ensure safe operation.
     11.1.5 Snips
     Use:
-    Snips are used to cut sheet metal or other soft materials.
+    Snips are used to cut sheet metal or other soft materials.
     Safety while using:
-    Select the correct type of snips for the specific cutting job you need to perform. Choose between
+    Select the correct type of snips for the specific cutting job you need to perform. Choose between
     straight, wide curve, tight curve, right-cut, or left-cut snips based on the cutting requirements.
-    Only use snips for cutting soft metals; avoid using them on harder materials as it may damage
+    Only use snips for cutting soft metals; avoid using them on harder materials as it may damage
     the snips and result in an ineffective cut.
     72
     FRC 7902: Markham Firebirds
-    Engage the locking clip when the snips are not in use to prevent accidental opening and
+    Engage the locking clip when the snips are not in use to prevent accidental opening and
     potential injury.
-    Avoid trying to cut sharp curves using straight snips, as they are not designed for such tasks
+    Avoid trying to cut sharp curves using straight snips, as they are not designed for such tasks
     and may cause damage to the snips or result in an inaccurate cut.
-    Do not use a hammer or your feet to apply additional pressure to the snips, as this may lead
+    Do not use a hammer or your feet to apply additional pressure to the snips, as this may lead
     to damage or affect the precision of the cut.
-    Never attempt to resharpen snips using a file, as this can alter the shape and functionality of
+    Never attempt to resharpen snips using a file, as this can alter the shape and functionality of
     the cutting edges, reducing the snips’ effectiveness.
     By following these safety guidelines, you can use snips effectively and reduce the risk of accidents
     while cutting sheet metal or other soft materials. Always choose the appropriate type of snips
@@ -1736,18 +1736,18 @@ searchable_text: |
     to ensure safe and efficient operation.
     11.1.6 Pliers and Wire Cutters
     Use:
-    Side Cutting Pliers: Used for various purposes, including electrical and manufacturing tasks.
-    Long Nose Pliers: Used to grip small objects, reach into awkward places, and hold or attach
+    Side Cutting Pliers: Used for various purposes, including electrical and manufacturing tasks.
+    Long Nose Pliers: Used to grip small objects, reach into awkward places, and hold or attach
     wires. Utility Pliers: Used to grip flat, square, or hexagonal pieces. Flat-Nose Pliers: Employed
     in many applications to grip, turn, and bend wires.
     Safety while using:
     73
     FRC 7902: Markham Firebirds
-    Wear safety glasses to protect your eyes from the risk of flying wires or small objects.
-    Cut wires at the correct angles to ensure clean and precise cuts.
-    Use pliers in good condition, free from any damage or defects.
-    Check that the cutting edges of the pliers are sharp to maintain their effectiveness.
-    Choose pliers that allow you to hold the workpiece comfortably and securely to prevent slipping
+    Wear safety glasses to protect your eyes from the risk of flying wires or small objects.
+    Cut wires at the correct angles to ensure clean and precise cuts.
+    Use pliers in good condition, free from any damage or defects.
+    Check that the cutting edges of the pliers are sharp to maintain their effectiveness.
+    Choose pliers that allow you to hold the workpiece comfortably and securely to prevent slipping
     or mishandling.
     By adhering to these safety practices, you can effectively and safely use various types of pliers
     for different tasks. Always ensure your pliers are in good working condition and use them at the
@@ -1756,65 +1756,65 @@ searchable_text: |
     proper and safe usage.
     11.1.7 Mire Saw/Cop Saw
     Use:
-    Power saws are used to cut things into pieces efficiently and quickly.
+    Power saws are used to cut things into pieces efficiently and quickly.
     Safety while using:
-    Always wear safety glasses to protect your eyes from potential flying debris.
-    Before using the power saw, check the blade for any damage or defects.
-    Ensure the blade is securely attached to the saw before operating it.
+    Always wear safety glasses to protect your eyes from potential flying debris.
+    Before using the power saw, check the blade for any damage or defects.
+    Ensure the blade is securely attached to the saw before operating it.
     74
     FRC 7902: Markham Firebirds
-    Keep cords away from the cutting area to prevent any accidents or entanglements.
-    Examine the wires for any damage or frays to ensure safe operation.
-    Securely hold the workpiece in place to prevent it from moving during cutting.
-    Make sure there is no one standing directly behind the saw to avoid injury from kickbacks.
-    Tie back long hair to prevent it from getting caught in the saw’s moving parts.
-    Avoid wearing loose clothing that could potentially get entangled with the saw.
+    Keep cords away from the cutting area to prevent any accidents or entanglements.
+    Examine the wires for any damage or frays to ensure safe operation.
+    Securely hold the workpiece in place to prevent it from moving during cutting.
+    Make sure there is no one standing directly behind the saw to avoid injury from kickbacks.
+    Tie back long hair to prevent it from getting caught in the saw’s moving parts.
+    Avoid wearing loose clothing that could potentially get entangled with the saw.
     By following these safety guidelines, you can use power saws effectively and reduce the risk of
     accidents or injuries. Prioritise safety at all times and be attentive to potential hazards in your work
     environment when operating power saws.
     11.1.8 Drill Press
     Use:
-    A drill press is used to drill more precise holes with increased force and accuracy.
+    A drill press is used to drill more precise holes with increased force and accuracy.
     Safety while using:
-    Always wear safety glasses to protect your eyes from any potential debris.
-    Keep the drill bits sharp to ensure efficient drilling and reduce the risk of accidents.
-    Ensure cords are kept away from the cutting areas to avoid any entanglement hazards.
+    Always wear safety glasses to protect your eyes from any potential debris.
+    Keep the drill bits sharp to ensure efficient drilling and reduce the risk of accidents.
+    Ensure cords are kept away from the cutting areas to avoid any entanglement hazards.
     75
     FRC 7902: Markham Firebirds
-    Before use, check the wires for any damage or frays to ensure safe operation.
-    Tighten the chuck securely to prevent the drill bit from slipping during drilling.
-    Securely hold the workpiece in place to prevent it from moving while drilling.
-    Drill a small pivot hole before drilling a larger one to help maintain precision.
-    Do not use bent drill pieces, as they may not drill accurately and can be hazardous.
-    Avoid reaching under or over the workpiece while the drill press is in operation.
+    Before use, check the wires for any damage or frays to ensure safe operation.
+    Tighten the chuck securely to prevent the drill bit from slipping during drilling.
+    Securely hold the workpiece in place to prevent it from moving while drilling.
+    Drill a small pivot hole before drilling a larger one to help maintain precision.
+    Do not use bent drill pieces, as they may not drill accurately and can be hazardous.
+    Avoid reaching under or over the workpiece while the drill press is in operation.
     Following these safety precautions when using a drill press will help ensure a safe and effective
     drilling process. Always prioritise safety in your workshop and use the drill press with caution and
     attention to potential risks.
     11.1.9 Rivet Gun
     Use:
-    A riveter is used to secure two sheets of metal together by joining them with rivets.
+    A riveter is used to secure two sheets of metal together by joining them with rivets.
     Safety while using:
-    Always wear safety glasses to protect your eyes from potential debris or metal fragments.
-    Ensure the workpiece is securely held in place to prevent any movement during riveting.
-    Drill holes in the metal sheets to the appropriate size before using the riveter.
+    Always wear safety glasses to protect your eyes from potential debris or metal fragments.
+    Ensure the workpiece is securely held in place to prevent any movement during riveting.
+    Drill holes in the metal sheets to the appropriate size before using the riveter.
     76
     FRC 7902: Markham Firebirds
-    Avoid using bent or broken rivets, as they may not provide a secure and reliable connection.
+    Avoid using bent or broken rivets, as they may not provide a secure and reliable connection.
     By following these safety measures when using a riveter, you can minimise the risk of accidents
     and ensure a successful and safe metal joining process. Always prioritise safety and use the riveter
     responsibly and effectively.
     11.1.10 Calliper
     Use:
-    Callipers are used to precisely measure the dimensions of various objects.
+    Callipers are used to precisely measure the dimensions of various objects.
     Safety while using:
-    Before using the calliper, ensure your surroundings are safe and free from any potential hazards.
-    If others are working nearby, wear eye protection to protect yourself from any flying debris.
+    Before using the calliper, ensure your surroundings are safe and free from any potential hazards.
+    If others are working nearby, wear eye protection to protect yourself from any flying debris.
     Tips:
-    There are multiple ways to measure using a calliper, depending on the specific dimensions you
+    There are multiple ways to measure using a calliper, depending on the specific dimensions you
     need to determine.
-    The main method involves measuring the distance between the two ”claws” of the calliper.
-    The top part of the calliper can be used to measure the inside diameter of a tube or pipe.
-    The protruding piece at the bottom can be utilised to measure depth.
+    The main method involves measuring the distance between the two ”claws” of the calliper.
+    The top part of the calliper can be used to measure the inside diameter of a tube or pipe.
+    The protruding piece at the bottom can be utilised to measure depth.
     By following safety precautions and understanding the various measurement techniques, you can
     77
     FRC 7902: Markham Firebirds
@@ -1822,16 +1822,16 @@ searchable_text: |
     attentive while handling this tool to prevent accidents and ensure reliable measurements.
     11.1.11 Vice
     Use:
-    A vise is used to securely hold workpieces in place during various tasks.
+    A vise is used to securely hold workpieces in place during various tasks.
     Safety while using:
-    Depending on your surroundings and the nature of the work, wear safety glasses to protect
+    Depending on your surroundings and the nature of the work, wear safety glasses to protect
     your eyes.
-    Keep your hands and other body parts outside of the vise while it is in operation.
-    Be mindful of the workpieces to ensure they do not get damaged or crushed during clamping.
+    Keep your hands and other body parts outside of the vise while it is in operation.
+    Be mindful of the workpieces to ensure they do not get damaged or crushed during clamping.
     Tips:
-    Exercise caution not to overtighten the vise, as excessive force may damage delicate workpieces,
+    Exercise caution not to overtighten the vise, as excessive force may damage delicate workpieces,
     especially extrusions.
-    When using the vise, apply firm but controlled pressure to securely hold the workpiece without
+    When using the vise, apply firm but controlled pressure to securely hold the workpiece without
     causing any harm.
     By following these safety guidelines and using the vise appropriately, you can work effectively and
     safely with various materials and projects. Always be attentive and cautious when using the vise to
@@ -1840,29 +1840,29 @@ searchable_text: |
     FRC 7902: Markham Firebirds
     11.1.12 Chain Tool
     Use:
-    A chain breaker is a tool used to separate or break apart chain links during maintenance or
+    A chain breaker is a tool used to separate or break apart chain links during maintenance or
     repair tasks.
     Safety while using:
-    Wear safety glasses to protect your eyes from any flying debris or metal fragments that may
+    Wear safety glasses to protect your eyes from any flying debris or metal fragments that may
     result from using the chain breaker.
-    Ensure the workpiece (the chain) is securely positioned within the chain breaker before applying
+    Ensure the workpiece (the chain) is securely positioned within the chain breaker before applying
     pressure to break it apart.
     By taking these safety precautions, you can safely and effectively use the chain breaker to work with
     chains, minimising the risk of injuries and accidents. Always prioritise safety when using tools to
     maintain a safe working environment.
     11.1.13 Files
     Use:
-    A file is a tool used to smooth out rough edges and remove burrs from workpieces.
+    A file is a tool used to smooth out rough edges and remove burrs from workpieces.
     Safety while using:
-    Wear safety glasses to protect your eyes from any debris or metal shavings that may be
+    Wear safety glasses to protect your eyes from any debris or metal shavings that may be
     generated while filing.
     79
     FRC 7902: Markham Firebirds
-    When filing, always work from top to bottom in a controlled manner to avoid accidentally
+    When filing, always work from top to bottom in a controlled manner to avoid accidentally
     cutting yourself or damaging the workpiece.
-    Secure the workpiece properly to prevent any movement or slipping during filing.
+    Secure the workpiece properly to prevent any movement or slipping during filing.
     Tips:
-    Avoid over-filing a piece, as it may result in it becoming too short or losing its intended shape.
+    Avoid over-filing a piece, as it may result in it becoming too short or losing its intended shape.
     Work carefully and check your progress regularly to achieve the desired outcome without
     overdoing it
     .
@@ -1871,47 +1871,47 @@ searchable_text: |
     accidents and injuries.
     11.1.14 Deburring Tool
     Use:
-    A deburring tool is employed to remove burrs and smooth out the edges of drilled holes and
+    A deburring tool is employed to remove burrs and smooth out the edges of drilled holes and
     workpiece surfaces.
     Safety while using:
-    Wear safety glasses to protect your eyes from any flying debris or metal fragments.
-    Ensure that the blade of the deburring tool is sharp, as a dull blade may not work efficiently
+    Wear safety glasses to protect your eyes from any flying debris or metal fragments.
+    Ensure that the blade of the deburring tool is sharp, as a dull blade may not work efficiently
     and could be hazardous.
     80
     FRC 7902: Markham Firebirds
-    Wear gloves while using the deburring tool to safeguard your hands from potential cuts or
+    Wear gloves while using the deburring tool to safeguard your hands from potential cuts or
     injuries.
-    Properly secure the workpiece to prevent movement or slipping during the deburring process.
+    Properly secure the workpiece to prevent movement or slipping during the deburring process.
     Tips:
-    Apply the right amount of force while deburring to effectively remove burrs and achieve a
+    Apply the right amount of force while deburring to effectively remove burrs and achieve a
     smooth surface.
-    Avoid over-deburring a hole, as it may result in it becoming too large for rivets or other
+    Avoid over-deburring a hole, as it may result in it becoming too large for rivets or other
     fasteners.
     By adhering to these safety precautions and tips, you can use a deburring tool effectively and safely
     to achieve clean and polished edges on your workpieces. Always prioritise safety when using any
     tool to minimise the risk of accidents and ensure a successful outcome in your projects.
     11.1.15 Soldering Iron
     Use:
-    A soldering iron is used to join wires together using metal
+    A soldering iron is used to join wires together using metal
     Safety while using:
-    Wear safety glasses to protect your eyes from potential splatters of hot solder or other hazards.
-    Use gloves to shield your hands from accidental burns while handling the soldering iron.
-    Employ a heat sink or stand to place the soldering iron when not in use, preventing accidental
+    Wear safety glasses to protect your eyes from potential splatters of hot solder or other hazards.
+    Use gloves to shield your hands from accidental burns while handling the soldering iron.
+    Employ a heat sink or stand to place the soldering iron when not in use, preventing accidental
     81
     FRC 7902: Markham Firebirds
     contact with surfaces and reducing the risk of burns.
-    Strip wires properly and ensure they are clean before soldering to achieve a reliable connection.
-    Work in a well-ventilated area to disperse soldering fumes and prevent inhalation of harmful
+    Strip wires properly and ensure they are clean before soldering to achieve a reliable connection.
+    Work in a well-ventilated area to disperse soldering fumes and prevent inhalation of harmful
     substances.
-    Wear a mask to avoid breathing in toxic and potentially carcinogenic solder fumes.
+    Wear a mask to avoid breathing in toxic and potentially carcinogenic solder fumes.
     Tips:
-    Be cautious of solder fumes, as they can be harmful to your health. Proper ventilation and
+    Be cautious of solder fumes, as they can be harmful to your health. Proper ventilation and
     wearing a mask are essential to protect yourself.
-    Ensure that the soldering iron’s temperature is set appropriately for the task at hand to achieve
+    Ensure that the soldering iron’s temperature is set appropriately for the task at hand to achieve
     proper solder flow and prevent overheating.
-    Remember to ”tin” the tip of the soldering iron before soldering, which involves applying a
+    Remember to ”tin” the tip of the soldering iron before soldering, which involves applying a
     small amount of solder to the tip for better heat transfer and performance.
-    Have the heat shrink tubing prepared before soldering to insulate and protect the soldered
+    Have the heat shrink tubing prepared before soldering to insulate and protect the soldered
     connection.
     By adhering to these safety precautions and tips, you can safely and effectively use a soldering iron
     for your wiring needs. Prioritising safety is crucial to prevent accidents and potential health risks
@@ -1920,14 +1920,14 @@ searchable_text: |
     Use:
     82
     FRC 7902: Markham Firebirds
-    Wire strippers are employed to remove the sheathing from wires or to strip the insulation off
+    Wire strippers are employed to remove the sheathing from wires or to strip the insulation off
     individual wires.
     Safety while using:
-    Ensure that the wires are disconnected from any power source before using the wire strippers
+    Ensure that the wires are disconnected from any power source before using the wire strippers
     to avoid electrical shock or short circuits.
-    Wear safety glasses to protect your eyes from potential flying debris or sharp edges.
+    Wear safety glasses to protect your eyes from potential flying debris or sharp edges.
     Tips:
-    Use the appropriate wire gauge slot on the wire strippers to match the size of the wire you are
+    Use the appropriate wire gauge slot on the wire strippers to match the size of the wire you are
     stripping. If you are unsure about the wire gauge, don’t hesitate to ask a mentor or experienced
     team member for assistance.
     By following these safety guidelines and tips, you can safely and accurately use wire strippers for your
@@ -1965,12 +1965,12 @@ searchable_text: |
     derstanding the naming conventions for aluminium alloys is crucial to making informed material
     choices.
     Advantages of 6061 Aluminium
-    6061-T6 aluminium is known for its excellent strength-to-weight ratio, making it suitable for
+    6061-T6 aluminium is known for its excellent strength-to-weight ratio, making it suitable for
     84
     FRC 7902: Markham Firebirds
     various structural components of the robot.
-    It offers good machinability, making it easier to work with and fabricate precise parts.
-    This aluminium alloy exhibits good corrosion resistance, ensuring the longevity of robot com-
+    It offers good machinability, making it easier to work with and fabricate precise parts.
+    This aluminium alloy exhibits good corrosion resistance, ensuring the longevity of robot com-
     ponents.
     Safety Precations
     When working with metal alloys, always wear appropriate personal protective equipment (PPE) like
@@ -1986,16 +1986,16 @@ searchable_text: |
     tion and treatments. Understanding these codes helps us make informed decisions when selecting
     materials for our robot.
     The first digit signifies the primary alloying element:
-    1xx: Minimum 99.000% Aluminium
-    2xx: Copper
+    1xx: Minimum 99.000% Aluminium
+    2xx: Copper
     85
     FRC 7902: Markham Firebirds
-    3xx: Manganese
-    4xx: Silicon
-    5xx: Magnesium
-    6xx: Magnesium and Silicon
-    7xx: Zinc
-    8xx: Other Elements
+    3xx: Manganese
+    4xx: Silicon
+    5xx: Magnesium
+    6xx: Magnesium and Silicon
+    7xx: Zinc
+    8xx: Other Elements
     The second digit indicates a standard alloy with no alteration in composition.
     The last two digits, ”61,” represent a specific alloy composition. In this case, referring to the chart,
     the alloy ”6061” contains 1% magnesium and 0.6% silicon.
@@ -2031,34 +2031,34 @@ searchable_text: |
     87
     FRC 7902: Markham Firebirds
     Brushed Motors
-    Brushed motors are generally less efficient, emit more noise, and wear out more quickly com-
+    Brushed motors are generally less efficient, emit more noise, and wear out more quickly com-
     pared to brushless motors.
-    However, they are more cost-effective and can typically handle heavier loads, making them
+    However, they are more cost-effective and can typically handle heavier loads, making them
     suitable for certain applications.
-    Due to their affordability, brushed motors are commonly used in scenarios where budget is a
+    Due to their affordability, brushed motors are commonly used in scenarios where budget is a
     concern.
     Brushless Motors
-    Brushless motors outperform brushed motors in almost every aspect.
-    They are more efficient, quieter, and have longer lifespans, providing a smoother and more
+    Brushless motors outperform brushed motors in almost every aspect.
+    They are more efficient, quieter, and have longer lifespans, providing a smoother and more
     reliable operation.
-    Despite their superior performance, brushless motors come with increased complexity in terms
+    Despite their superior performance, brushless motors come with increased complexity in terms
     of control and operation.
-    Their higher cost can also be a limiting factor, especially for teams with limited financial
+    Their higher cost can also be a limiting factor, especially for teams with limited financial
     resources.
     Key Considerations
-    Efficiency : Choose motors based on the desired level of efficiency in different robot subsys-
+    Efficiency : Choose motors based on the desired level of efficiency in different robot subsys-
     tems. High-efficiency motors can lead to improved overall performance and longer battery
     life.
     88
     FRC 7902: Markham Firebirds
-    Noise : Consider the noise factor when selecting motors, especially in applications where quiet
+    Noise : Consider the noise factor when selecting motors, especially in applications where quiet
     operation is essential for strategic gameplay or team communication.
-    Load Capacity : Assess the loads and stresses that motors will experience in different robot
+    Load Capacity : Assess the loads and stresses that motors will experience in different robot
     mechanisms. Opt for motors that can handle the required loads without strain.
-    Budget : Being mindful of the team’s budget, striking a balance between performance and
+    Budget : Being mindful of the team’s budget, striking a balance between performance and
     cost is vital. Make informed decisions to optimise the robot’s performance while staying within
     financial constraints.
-    Control Complexity : Evaluate the team’s expertise and familiarity with motor control
+    Control Complexity : Evaluate the team’s expertise and familiarity with motor control
     systems, as brushless motors may require more sophisticated control methods.
     By carefully weighing the advantages and disadvantages of brushed and brushless motors, our team
     can make informed decisions to create an efficient, functional, and cost-effective robot for FRC
@@ -2068,27 +2068,27 @@ searchable_text: |
     this case, the motor controllers mentioned are the Victor SPX and Victor SPX, which are commonly
     used in FRC (FIRST Robotics Competition) teams to control CIMS motors.
     Pros of using CIMS motors with Victor SPX or Victor SPX motor controllers:
-    Strength and Load Capacity : CIMS motors are known for their robustness and ability
+    Strength and Load Capacity : CIMS motors are known for their robustness and ability
     to handle heavy loads. They are well-suited for powering mechanisms that require significant
     force, such as drivetrains and lifting mechanisms.
-    Torque : CIMS motors provide a decent amount of torque, which is essential for tasks that
+    Torque : CIMS motors provide a decent amount of torque, which is essential for tasks that
     89
     FRC 7902: Markham Firebirds
     demand strong rotational force, like moving heavy game pieces or overcoming resistance in
     certain mechanisms.
-    User-Friendly : CIMS motors are brushed motors, which means they are relatively straight-
+    User-Friendly : CIMS motors are brushed motors, which means they are relatively straight-
     forward to use and control. Teams with varying levels of experience can easily integrate and
     operate these motors into their robot designs.
-    Cost-Effectiveness : CIMS motors are generally more affordable compared to some of their
+    Cost-Effectiveness : CIMS motors are generally more affordable compared to some of their
     more advanced counterparts, making them a popular choice for FRC teams with budget con-
     straints.
     Cons of using CIMS motors with Victor SPX or Victor SPX motor controllers:
-    Weight : One notable drawback of CIMS motors is their weight. Their substantial build can
+    Weight : One notable drawback of CIMS motors is their weight. Their substantial build can
     add to the overall weight of the robot, potentially affecting agility and manoeuvrability.
-    Efficiency : While CIMS motors offer excellent strength and load capacity, they are not as
+    Efficiency : While CIMS motors offer excellent strength and load capacity, they are not as
     efficient as some brushless motors. This means they may consume more power and generate
     more heat during operation, impacting the overall efficiency of the robot.
-    Speed and Power : While CIMS motors provide sufficient torque, they may not be the fastest
+    Speed and Power : While CIMS motors provide sufficient torque, they may not be the fastest
     or most powerful motors available in the market. This limitation might affect the robot’s top
     speed and its ability to perform tasks requiring high-speed motion.
     In conclusion, using CIMS motors with Victor SPX or Victor SPX motor controllers in an FRC robot
@@ -2104,30 +2104,30 @@ searchable_text: |
     particularly in FRC (FIRST Robotics Competition) teams, to control Mini CIMS motors. Let’s
     delve into the pros and cons of using Mini CIMS motors with these motor controllers:
     Pros of using Mini CIMS motors with Victor SPX or Victor SPX motor controllers:
-    Strength and Load Capacity : Mini CIMS motors are known for their strength and ability
+    Strength and Load Capacity : Mini CIMS motors are known for their strength and ability
     to handle heavy loads. Despite their smaller size compared to standard CIMS motors, they
     are still powerful and suitable for applications that require significant force, such as driving
     mechanisms and lifting mechanisms.
-    Torque : Mini CIMS motors provide a decent amount of torque, making them well-suited for
+    Torque : Mini CIMS motors provide a decent amount of torque, making them well-suited for
     tasks that demand strong rotational force. This characteristic allows them to power mecha-
     nisms requiring substantial pulling or pushing force.
-    User-Friendly : Similar to standard CIMS motors, Mini CIMS are brushed motors, which
+    User-Friendly : Similar to standard CIMS motors, Mini CIMS are brushed motors, which
     means they are relatively straightforward to use and control. This user-friendly nature allows
     teams with varying levels of experience to easily integrate and operate these motors in their
     robot designs.
-    Cost-Effective : Mini CIMS motors are generally more affordable compared to more advanced
+    Cost-Effective : Mini CIMS motors are generally more affordable compared to more advanced
     and specialised motors. This cost-effectiveness is advantageous for FRC teams with budget
     constraints, as they can achieve decent performance without overspending on motors.
     Cons of using Mini CIMS motors with Victor SPX or Victor SPX motor controllers:
     91
     FRC 7902: Markham Firebirds
-    Weight : Although Mini CIMS motors are smaller than standard CIMS motors, they can still
+    Weight : Although Mini CIMS motors are smaller than standard CIMS motors, they can still
     add a notable amount of weight to the robot. This added weight might affect the robot’s
     agility and manoeuvrability, especially if multiple Mini CIMS are used throughout the design.
-    Efficiency : While Mini CIMS motors offer considerable strength and load capacity, they are
+    Efficiency : While Mini CIMS motors offer considerable strength and load capacity, they are
     not as efficient as some brushless motors. This means they may consume more power and
     generate more heat during operation, potentially impacting the overall efficiency of the robot.
-    Speed and Power : Although Mini CIMS motors are strong, they might not be the fastest
+    Speed and Power : Although Mini CIMS motors are strong, they might not be the fastest
     or most powerful motors available in the market. Teams should consider this limitation when
     selecting motors for tasks requiring high-speed motion or maximum pushing force.
     In summary, using Mini CIMS motors with Victor SPX or Victor SPX motor controllers presents
@@ -2140,28 +2140,28 @@ searchable_text: |
     Using Talon SRX or Victor SPX motor controllers with 775 Pro or 775 RedLine motors offers specific
     advantages and drawbacks that teams should consider when designing their FRC robots.
     Pros of using 775 Pro or 775 RedLine motors with Talon SRX or Victor SPX motor controllers:
-    Speed : 775 Pro and 775 RedLine motors are known for their high-speed capabilities, making
+    Speed : 775 Pro and 775 RedLine motors are known for their high-speed capabilities, making
     them some of the fastest motors available for FRC robots. Their quick rotational speed is
     valuable for applications that require rapid motion, such as shooter mechanisms or flywheels.
     92
     FRC 7902: Markham Firebirds
-    Weight : Both 775 Pro and 775 RedLine motors are relatively lightweight compared to other
+    Weight : Both 775 Pro and 775 RedLine motors are relatively lightweight compared to other
     motors with similar power outputs. This reduced weight can be advantageous in ensuring a
     lighter overall robot design, contributing to better agility and manoeuvrability.
-    User-Friendly : Like other brushed motors, 775 Pro and 775 RedLine motors are straight-
+    User-Friendly : Like other brushed motors, 775 Pro and 775 RedLine motors are straight-
     forward to use and control. This user-friendliness simplifies their integration into the robot’s
     electrical system and facilitates smooth operation.
-    Cost-Effective : These motors are relatively affordable, which is beneficial for FRC teams
+    Cost-Effective : These motors are relatively affordable, which is beneficial for FRC teams
     with budget limitations. Their cost-effectiveness allows teams to allocate resources to other
     critical aspects of their robot design without compromising on performance.
-    Efficiency : 775 Pro and 775 RedLine motors are decently efficient in converting electrical
+    Efficiency : 775 Pro and 775 RedLine motors are decently efficient in converting electrical
     power into mechanical output. This efficiency is beneficial for maximising the robot’s battery
     life and reducing heat generation during prolonged use.
     Cons of using 775 Pro or 775 RedLine motors with Talon SRX or Victor SPX motor controllers:
-    Low Torque : One of the limitations of 775 Pro and 775 RedLine motors is their lower torque
+    Low Torque : One of the limitations of 775 Pro and 775 RedLine motors is their lower torque
     compared to other motors like the Falcon motors. This means they might not provide as much
     force for tasks that demand high pushing or pulling power, such as lifting heavy game pieces.
-    Load Capacity : These motors might not be suitable for applications that require handling
+    Load Capacity : These motors might not be suitable for applications that require handling
     heavy loads or supporting mechanisms that involve significant weight. Their limited load
     capacity could lead to motor strain or reduced performance in certain scenarios.
     In summary, using Talon SRX or Victor SPX motor controllers with 775 Pro or 775 RedLine motors
@@ -2177,27 +2177,27 @@ searchable_text: |
     Using Spark MAX motor controllers with Neo 550 motors offers specific advantages and considera-
     tions that FRC teams should take into account when designing their robots.
     Pros of using Neo 550 motors with Spark MAX motor controllers:
-    Speed : Neo 550 motors are known for their fast rotational speed, making them suitable
+    Speed : Neo 550 motors are known for their fast rotational speed, making them suitable
     for applications that require quick motion. Their high speed capabilities are valuable for
     mechanisms like shooters, conveyors, or other systems requiring rapid movement.
-    Efficiency : Neo 550 motors are more efficient compared to many other motors commonly used
+    Efficiency : Neo 550 motors are more efficient compared to many other motors commonly used
     in FRC. Their improved efficiency results in less power loss as heat, maximising the mechanical
     output for a given electrical input.
-    Compact and Lightweight : Neo 550 motors are among the smallest and lightest motors
+    Compact and Lightweight : Neo 550 motors are among the smallest and lightest motors
     available in FRC. Their compact size and reduced weight allow for more flexible and space-
     efficient robot designs. These motors are particularly useful in situations where weight and
     space constraints are critical.
     Cons of using Neo 550 motors with Spark MAX motor controllers:
-    Cost : While the Neo 550 motors themselves are relatively affordable, the Spark MAX motor
+    Cost : While the Neo 550 motors themselves are relatively affordable, the Spark MAX motor
     controllers can be relatively expensive compared to other motor controller options. This cost
     factor should be considered when budgeting for the overall robot design.
     94
     FRC 7902: Markham Firebirds
-    Speed and Strength : While Neo 550 motors are fast, they might not match the top-tier
+    Speed and Strength : While Neo 550 motors are fast, they might not match the top-tier
     speed or pushing power of other specialised motors like the Falcon motors. Teams should
     carefully evaluate the required speed and torque of their robot mechanisms to ensure Neo 550
     motors meet their performance needs.
-    Brushless Complexity : Neo 550 motors are brushless motors, which can be more complex
+    Brushless Complexity : Neo 550 motors are brushless motors, which can be more complex
     to control and program compared to brushed motors. Teams should ensure they have the
     expertise and resources to handle the nuances of brushless motor control to fully leverage the
     advantages of the Neo 550 motors.
@@ -2214,33 +2214,33 @@ searchable_text: |
     Using Spark MAX motor controllers with Neo motors offers specific advantages and considerations
     that FRC teams should take into account when designing their robots.
     Pros of using Neo motors with Spark MAX motor controllers:
-    Speed : Neo motors are known for their fast rotational speed, making them suitable for appli-
+    Speed : Neo motors are known for their fast rotational speed, making them suitable for appli-
     cations that require quick motion. Their high speed capabilities are valuable for mechanisms
     like shooters, conveyors, or other systems requiring rapid movement.
     95
     FRC 7902: Markham Firebirds
-    Efficiency : Neo motors are more efficient compared to many other motors commonly used in
+    Efficiency : Neo motors are more efficient compared to many other motors commonly used in
     FRC. Their improved efficiency results in less power loss as heat, maximising the mechanical
     output for a given electrical input. This efficiency can lead to longer battery life and overall
     improved performance.
-    Torque : Neo motors offer a substantial amount of torque, making them capable of handling
+    Torque : Neo motors offer a substantial amount of torque, making them capable of handling
     various robot mechanisms that require significant pushing power or heavy load-bearing capac-
     ities.
-    Brushless Technology : Neo motors are a brushless motor design, providing several advan-
+    Brushless Technology : Neo motors are a brushless motor design, providing several advan-
     tages over brushed motors, such as longer lifespan, reduced maintenance, and better perfor-
     mance in high-frequency environments.
-    Compact and Lightweight : Like brushed Neo 550 motors, Neo motors are relatively com-
+    Compact and Lightweight : Like brushed Neo 550 motors, Neo motors are relatively com-
     pact and lightweight, allowing for more flexible and space-efficient robot designs.
     Cons of using Neo motors with Spark MAX motor controllers:
-    Cost : One of the significant drawbacks of using Neo motors is their higher cost compared to
+    Cost : One of the significant drawbacks of using Neo motors is their higher cost compared to
     some other motor options. This includes both the cost of the motor itself and the accompanying
     motor controllers. Teams should carefully consider their budget constraints when choosing Neo
     motors for their robot.
-    Speed and Strength : While Neo motors offer impressive speed and torque, they may not
+    Speed and Strength : While Neo motors offer impressive speed and torque, they may not
     match the absolute top-tier speed and pushing power of certain specialised motors like the
     Falcon motors. Teams should evaluate their specific robot design requirements to ensure that
     Neo motors meet their performance needs.
-    Brushless Complexity : Neo motors require brushless motor controllers like Spark MAX,
+    Brushless Complexity : Neo motors require brushless motor controllers like Spark MAX,
     96
     FRC 7902: Markham Firebirds
     which can be more complex to control and program compared to brushed motors and their
@@ -2258,27 +2258,27 @@ searchable_text: |
     Using the Talon SRX motor controller with Falcon 500 motors offers both significant advantages and
     potential concerns that FRC teams should carefully consider when selecting their robot’s motors.
     Pros of using Falcon 500 motors with Talon SRX motor controllers:
-    Speed : Falcon 500 motors are known for their impressive speed capabilities, making them
+    Speed : Falcon 500 motors are known for their impressive speed capabilities, making them
     well-suited for mechanisms that require quick and precise motion. Their high speed can be
     advantageous for various game-specific tasks like shooting game pieces or rapid movement in
     autonomous modes.
-    Torque : Falcon 500 motors offer high torque output, providing substantial pushing power and
+    Torque : Falcon 500 motors offer high torque output, providing substantial pushing power and
     load-carrying capacity. Their strong torque makes them suitable for mechanisms that require
     high force, such as drive trains, lifting arms, or manipulators.
-    Efficiency : Falcon 500 motors are designed to be highly efficient, converting electrical power
+    Efficiency : Falcon 500 motors are designed to be highly efficient, converting electrical power
     97
     FRC 7902: Markham Firebirds
     into mechanical output with minimal energy loss as heat. Their efficiency contributes to longer
     battery life, reduced heating during prolonged use, and overall improved robot performance.
-    Superior Specs : Falcon 500 motors are engineered with advanced features, making them
+    Superior Specs : Falcon 500 motors are engineered with advanced features, making them
     stand out as one of the top motor options in terms of specifications. Their combination of
     speed, torque, and efficiency makes them a popular choice for high-performing FRC robots.
     Cons of using Falcon 500 motors with Talon SRX motor controllers:
-    Cost : One of the significant drawbacks of Falcon 500 motors is their higher cost compared
+    Cost : One of the significant drawbacks of Falcon 500 motors is their higher cost compared
     to other motor options available in FRC. This includes both the cost of the motor itself and
     the specific motor controllers required for their operation. The higher price can be a limiting
     factor for teams with budget constraints.
-    Quality Control : Over the years, there have been concerns about the quality control of
+    Quality Control : Over the years, there have been concerns about the quality control of
     Falcon 500 motors. While they are known for their exceptional performance, some teams have
     experienced issues with motor reliability, including potential failures or inconsistencies. Teams
     should be aware of this historical concern and may consider having backup motor options in
