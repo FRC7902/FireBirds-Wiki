@@ -27,12 +27,14 @@ class SyncManager:
         self.drive_client = drive_client or DriveClient()
         self.metadata = metadata_manager or MetadataManager()
 
+        # Resolve root directory (always available)
+        root_dir = Path(__file__).resolve().parents[4]
+
         # Resolve content directory
         if content_dir:
             self.content_dir = Path(content_dir)
         else:
             # Try to find Wiki directory
-            root_dir = Path(__file__).resolve().parents[4]
             candidates = [root_dir / "Wiki", root_dir / "wiki", root_dir / "content"]
             for candidate in candidates:
                 if candidate.exists():
