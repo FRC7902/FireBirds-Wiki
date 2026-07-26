@@ -73,7 +73,6 @@ class SyncManager:
 
         # Strip non-printable characters (except common whitespace: \n, \r, \t)
         # This prevents YAML parsing errors from control characters like U+0088
-        import re
         text = re.sub(r'[^\x20-\x7E\x0A\x0D\x09\xA0-\xFF\u0100-\uFFFF]', '', text)
 
         # Clean up the text
@@ -272,13 +271,8 @@ class SyncManager:
             if mime_type in ["application/vnd.google-apps.document",
                             "application/vnd.google-apps.presentation",
                             "application/pdf"]:
-                # These are converted to .md files
-                if mime_type == "application/pdf" or name.lower().endswith('.pdf'):
-                    # PDFs use .pdf.md extension and go to website/docs/
-                    local_path = self.docs_dir / f"{relative_path}.pdf.md"
-                else:
-                    # Google Docs/Slides use .md extension and go to content_dir
-                    local_path = self.content_dir / f"{relative_path}.md"
+                # All document types use .pdf.md extension and go to website/docs/
+                local_path = self.docs_dir / f"{relative_path}.pdf.md"
             elif name.lower().endswith('.md') or mime_type == 'text/markdown':
                 local_path = self.content_dir / relative_path
             else:
@@ -307,7 +301,7 @@ class SyncManager:
                 drive_id=drive_id,
                 modified_time=drive_modified_time or datetime.now(timezone.utc).isoformat(),
                 path=str(drive_file["path"]),
-                local_path=str(local_path.relative_to(self.content_dir)) if local_path.is_relative_to(self.content_dir) else str(local_path.relative_to(self.docs_dir)),
+                local_path=str(local_path.relative_to(self.docs_dir)),
                 text_content=None
             )
 
@@ -349,7 +343,8 @@ class SyncManager:
         pdf_filename = os.path.basename(asset_relative_path)
         pdf_url = quote(pdf_filename)
 
-        # Build frontmatter (no extracted text in YAML)
+        # Build clean front matter ONLY with title and sidebar_label
+        # No searchable_text or other large metadata fields in YAML
         frontmatter = f"""---
 title: "{name}"
 sidebar_label: "{name}"
@@ -364,7 +359,7 @@ sidebar_label: "{name}"
 
         frontmatter += "---\n"
 
-        # Build body with download link
+        # Build body with title and download link
         body = f"""
 # {name}
 
@@ -372,7 +367,7 @@ sidebar_label: "{name}"
 
 """
 
-        # Add hidden searchable content block
+        # Add hidden searchable content block (NOT in YAML front matter)
         if text_content:
             formatted_text = self._format_searchable_text(text_content)
             body += f"""<!-- Hidden searchable content -->
@@ -403,23 +398,28 @@ sidebar_label: "{name}"
         # Create parent directories
         local_path.parent.mkdir(parents=True, exist_ok=True)
 
+        # Determine the relative directory path (category/subcategory)
+        relative_path = drive_file["relative_path"]
+        relative_dir = relative_path.parent if str(relative_path) else PurePosixPath()
+
         if mime_type == "application/vnd.google-apps.document":
             # Download as PDF and extract text
             pdf_content = self.drive_client.download_google_doc_pdf(drive_id)
             text_content = self.drive_client.download_google_doc_text(drive_id)
 
-            # Save PDF to Docusaurus static assets
-            asset_name = f"{drive_id}.pdf"
-            asset_path = Path("website/static/assets") / asset_name
-            asset_path.parent.mkdir(parents=True, exist_ok=True)
-            asset_path.write_bytes(pdf_content)
+            # Save PDF using ORIGINAL filename to website/static/docs/<CATEGORY>/<SUBCATEGORY>/<FILENAME>.pdf
+            pdf_asset_path = self.static_docs_dir / relative_dir / f"{safe_filename}.pdf"
+            pdf_asset_path.parent.mkdir(parents=True, exist_ok=True)
+            pdf_asset_path.write_bytes(pdf_content)
 
             # Create Docusaurus-compatible markdown with hidden searchable content
+            # The PDF is in the same directory as the markdown, so use relative path
             content = self._generate_markdown_content(
                 name=safe_filename,
-                asset_relative_path=f"/assets/{asset_name}",
+                asset_relative_path=f"{safe_filename}.pdf",
                 text_content=text_content,
-                description="This Google Doc is shown below."
+                description="This Google Doc is shown below.",
+                relative_path=str(relative_path),
             )
             local_path.write_text(content, encoding='utf-8')
 
@@ -428,18 +428,19 @@ sidebar_label: "{name}"
             pdf_content = self.drive_client.download_google_slides_pdf(drive_id)
             text_content = self.drive_client.download_google_slides_text(drive_id)
 
-            # Save PDF to Docusaurus static assets
-            asset_name = f"{drive_id}.pdf"
-            asset_path = Path("website/static/assets") / asset_name
-            asset_path.parent.mkdir(parents=True, exist_ok=True)
-            asset_path.write_bytes(pdf_content)
+            # Save PDF using ORIGINAL filename to website/static/docs/<CATEGORY>/<SUBCATEGORY>/<FILENAME>.pdf
+            pdf_asset_path = self.static_docs_dir / relative_dir / f"{safe_filename}.pdf"
+            pdf_asset_path.parent.mkdir(parents=True, exist_ok=True)
+            pdf_asset_path.write_bytes(pdf_content)
 
             # Create Docusaurus-compatible markdown with hidden searchable content
+            # The PDF is in the same directory as the markdown, so use relative path
             content = self._generate_markdown_content(
                 name=safe_filename,
-                asset_relative_path=f"/assets/{asset_name}",
+                asset_relative_path=f"{safe_filename}.pdf",
                 text_content=text_content,
-                description="This Google Slides presentation is shown below."
+                description="This Google Slides presentation is shown below.",
+                relative_path=str(relative_path),
             )
             local_path.write_text(content, encoding='utf-8')
 
@@ -447,10 +448,7 @@ sidebar_label: "{name}"
             # Download PDF and create Docusaurus markdown wrapper
             pdf_content = self.drive_client.download_file(drive_id)
 
-            # Save PDF to website/static/docs/<CATEGORY>/<SUBCATEGORY>/<FILENAME>.pdf
-            relative_path = drive_file["relative_path"]
-            # Get the directory part of the relative path (category/subcategory)
-            relative_dir = relative_path.parent if str(relative_path) else PurePosixPath()
+            # Save PDF using ORIGINAL filename to website/static/docs/<CATEGORY>/<SUBCATEGORY>/<FILENAME>.pdf
             pdf_asset_path = self.static_docs_dir / relative_dir / f"{safe_filename}.pdf"
             pdf_asset_path.parent.mkdir(parents=True, exist_ok=True)
             pdf_asset_path.write_bytes(pdf_content)
@@ -464,7 +462,8 @@ sidebar_label: "{name}"
                 name=safe_filename,
                 asset_relative_path=f"{safe_filename}.pdf",
                 text_content=text_content,
-                description="This PDF is shown below."
+                description="This PDF is shown below.",
+                relative_path=str(relative_path),
             )
             local_path.write_text(content, encoding='utf-8')
 
@@ -495,9 +494,9 @@ sidebar_label: "{name}"
             relative_path = drive_file["relative_path"]
 
             if mime_type in ["application/vnd.google-apps.document",
-                            "application/vnd.google-apps.presentation"]:
-                expected_paths.add(str(relative_path) + ".md")
-            elif mime_type == "application/pdf" or drive_file["name"].lower().endswith('.pdf'):
+                            "application/vnd.google-apps.presentation",
+                            "application/pdf"]:
+                # All document types produce .pdf.md files in website/docs/
                 expected_paths.add(str(relative_path) + ".pdf.md")
             elif mime_type == "text/markdown" or drive_file["name"].lower().endswith('.md'):
                 expected_paths.add(str(relative_path))
