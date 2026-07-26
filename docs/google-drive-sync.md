@@ -95,22 +95,48 @@ SECRET_KEY=your-secret-key-here-change-in-production
 
 **Important**: The folder must be publicly accessible for the sync to work without OAuth authentication.
 
-### 3. Push the Workflow to GitHub
+### 3. Push to GitHub and Trigger Sync
 
 **IMPORTANT**: The workflow file `.github/workflows/sync-drive.yml` has been created locally but must be pushed to GitHub before it will appear in the Actions tab.
 
+First, commit and push your changes:
+
 ```bash
-# Commit the workflow file
-git add .github/workflows/sync-drive.yml
-
-# Commit
+git add .
 git commit -m "Add Google Drive sync workflow"
-
-# Push to GitHub
 git push
 ```
 
-**After pushing**, the "Sync Google Drive" workflow will appear in the GitHub Actions tab.
+**After pushing**, the "Sync Google Drive & Deploy" workflow will appear in the GitHub Actions tab.
+
+### 4. Run a Sync
+
+You can sync Google Drive content in two ways:
+
+#### Option A: Via GitHub Actions (Recommended)
+
+1. Go to your GitHub repository
+2. Navigate to the **Actions** tab
+3. Select **"Sync Google Drive & Deploy"** workflow on the left sidebar
+4. Click the **"Run workflow"** button
+5. Select your branch (e.g., `deploy`)
+6. Click **"Run workflow"**
+
+The workflow will:
+- Download all documents from Google Drive
+- Sanitize any non-printable characters from generated files
+- Build the Docusaurus site
+- Deploy to GitHub Pages
+
+#### Option B: Via Command Line (Local testing)
+
+From the project root directory:
+
+```bash
+python -m backend.services.sync.drive_sync
+```
+
+This runs the sync locally without deploying. Requires `GOOGLE_DRIVE_FOLDER_URL` to be set in `.env`.
 
 ### 4. GitHub Secrets Configuration
 
