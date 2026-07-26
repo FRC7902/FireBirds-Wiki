@@ -1,8 +1,10 @@
-name: Build and Deploy to GitHub Pages
+name: Build & Deploy
 
 on:
   push:
-    branches: [ deploy ] # Change to master if your default branch is master
+    branches: [ deploy ]
+
+  workflow_dispatch: # Allows manual trigger from Actions tab
 
 permissions:
   contents: read
@@ -29,15 +31,18 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install root dependencies
-        run: npm ci
-
-      - name: Install frontend dependencies
+      - name: Install website dependencies
         working-directory: ./website
         run: npm ci
 
-      - name: Build project
+      - name: Sanitize non-printable characters from markdown files
+        run: |
+          python3 .github/workflows/scripts/sanitize_markdown.py
+
+      - name: Build Docusaurus site
         run: npm run build
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
 
       - name: Copy CNAME for custom domain
         run: cp CNAME website/build/CNAME
@@ -50,4 +55,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
