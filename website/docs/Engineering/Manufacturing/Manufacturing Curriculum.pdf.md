@@ -2367,4 +2367,22 @@ title: "Manufacturing Curriculum.pdf"
 
 # Manufacturing Curriculum.pdf
 
-[Download the PDF](./1yPHUmJpYAzF_TTShJwmVOl_qsxDlCWRk.pdf)
+<div style="margin-bottom: 2rem;">
+  <iframe 
+    src="./1yPHUmJpYAzF_TTShJwmVOl_qsxDlCWRk.pdf" 
+    width="100%" 
+    height="800px" 
+    style="border: 1px solid #ddd; border-radius: 4px;">
+    <p>Your browser does not support PDFs. <a href="./1yPHUmJpYAzF_TTShJwmVOl_qsxDlCWRk.pdf">Download the PDF</a> instead.</p>
+  </iframe>
+</div>
+
+<p><a href="./1yPHUmJpYAzF_TTShJwmVOl_qsxDlCWRk.pdf">Download the PDF</a></p>
+
+<div style="display: none;">
+
+    7902 Markham Firebirds — Manufacturing
+    Curriculum
+    Jeffrey Yueh
+    Date Updated: June 2024
+    Date Created: June 30, 2024
