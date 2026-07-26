@@ -1,7 +1,7 @@
 ---
 sidebar_label: "Manufacturing Curriculum.pdf"
 title: "Manufacturing Curriculum.pdf"
-searchable_text: |
+---
     7902 Markham Firebirds — Manufacturing
     Curriculum
     Jeffrey Yueh
@@ -2367,8 +2367,4 @@ searchable_text: |
 
 # Manufacturing Curriculum.pdf
 
-This PDF is shown below.
-
-import PdfEmbed from '@site/src/components/PdfEmbed';
-
-<PdfEmbed src="/FireBirds-Wiki/assets/1yPHUmJpYAzF_TTShJwmVOl_qsxDlCWRk.pdf" title="Manufacturing Curriculum.pdf" />
+[Download the PDF](./1yPHUmJpYAzF_TTShJwmVOl_qsxDlCWRk.pdf)
